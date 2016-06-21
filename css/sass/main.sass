@@ -1,0 +1,195 @@
+@import "bourbon/bourbon"
+
+$bg_section1: #121111
+$bg_section2: #415d3e
+$bg_section3: #8fbcdf
+
+html
+	overflow-x: hidden
+
+body
+	font-family: "Cyberfall"
+	min-width: 320px
+	max-width: 100%
+	position: relative
+	color: #fff
+	font-size: 16px
+	overflow:hidden
+
+.hidden
+	display:none
+
+.main_head
+	min-height: 480px
+	height: 100vh
+	position: relative
+	padding: 20px 0
+
+svg
+	width: 100px
+	height: 100px
+	+animation(Therounding 10s linear infinite)
+
++keyframes(Therounding)
+	from
+		+transform(rotate(0deg))
+	to
+		+transform(rotate(360deg))
+
+@import "navmenu"
+
+.loader
+	background: none repeat scroll 0 0 #000
+	bottom: 0
+	height: 100%
+	left: 0
+	position: fixed
+	right: 0
+	top: 0
+	width: 100%
+	z-index: 9999
+	.loader_inner
+		background-image: url("../img/preloader.gif")
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center center
+		background-color: #000
+		height: 64px
+		width: 64px
+		margin-top: -30px
+		margin-left: -30px
+		left: 50%
+		top: 50%
+		position: absolute
+
+.top_wrapper
+	display: table
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+	.top_descr
+		display: table-row
+		.top_centered
+			display: table-cell
+			text-align: center
+			vertical-align: middle
+			.top_content
+				display: inline-block
+				.planet
+					margin: 0 auto
+					width: 150px
+					height: 150px
+					background: url(../img/tres2.jpg)
+					border-radius: 50%
+					background-size: 400px
+					box-shadow: inset 16px 0 40px 6px rgb(0,0,0), inset -3px 0 6px 2px rgba(255, 255, 255, 0.2)
+					+animation(planet 10s linear infinite)
+				h1
+					letter-spacing: 5px
+					font-size: 3em
+					font-family: "SpaceAge"
+				.planet_info
+					padding: 15px 23px
+					border: 2px solid #8ce9fb
+					color: #fffeff
+					border-radius: 10px
+					font-size: 1.5em
+					+transition(all .3s linear)
+					&:hover
+						background: #13140f
+						color: #fde58b
++keyframes(planet)
+	from
+		background-position-x: 0px
+	to
+		background-position-x: 400px
+
+section
+	padding: 50px 0 70px
+	.section_header
+		text-align: center
+		h2
+			font-size: 32px
+		p
+			font-size: 20px
+			position: relative
+			margin-bottom: 80px
+			&::after
+				content: ""
+				width: 150px
+				height: 2px
+				background: #fff
+				position: absolute
+				left: 50%
+				margin-left: -75px
+				margin-top: 60px
+	.section_content
+		font-family: "SnowstormBlack"
+
+
+.s_about
+	background: $bg_section1
+	color: #9d9497
+	.section_header p::after
+		background: #9d9497
+	.galaxy_wrapper
+		position: relative
+		.our_planet
+			position: absolute
+			background: #fff
+			width: 1%
+			height: 1%
+			border-radius: 50%
+			top: 40%
+			left: 65%
+			-webkit-box-shadow: 0px -1px 48px 13px rgba(255,255,255,1)
+			-moz-box-shadow: 0px -1px 48px 13px rgba(255,255,255,1)
+			box-shadow: 0px -1px 48px 13px rgba(255,255,255,1)
+			&::before
+				content: "TReS"
+				position: absolute
+				font-family: "SpaceAge"
+				font-size: 24px
+				text-decoration: underline
+				bottom: 2000%
+				left: 50%
+			&::after
+				position: absolute
+				content: ""
+				width: 2px
+				height: 1800%
+				background: #9d9497
+				bottom: 250%
+				left: 50%
+		img
+			width: 100%
+	.about_galaxy
+		h3
+			text-align: center
+			font-size: 20px
+			text-transform: uppercase
+		li
+			text-align: justify
+			margin-bottom: 10px
+
+
+.s_property
+	background: $bg_section2
+	.odometer
+		font-size: 50px
+
+.s_gallery
+	background: $bg_section3
+
+.s_tarrifs
+	background: $bg_section1
+
+.main_footer
+	padding: 50px 0
+	background: #000
+	text-transform: uppercase
+	font-size: 20px
+
+	
