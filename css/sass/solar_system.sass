@@ -1,0 +1,75 @@
+
+$sunSize: 100px
+
+= orbit($size)
+  position: absolute
+  top:  50%
+  left: 50%
+  margin: $size/-2 0 0 $size/-2
+  width:  $size
+  height: $size
+  border-radius: 50%
+  border: 1px solid #111 + 5
+  transition: all 0.5s
+  &:hover
+    border: 1px solid #2682D5
+  
+
+= planet($size)
+  position: absolute
+  top: 0
+  left: 50%
+  margin: $size/-2 0 0 $size/-2
+  width:  $size
+  height: $size
+  border-radius: 50%
+
+= rotateAnimation($time)
+  animation: rotate360 $time linear infinite
+
+.trackTres
+  +orbit(360px)
+  +rotateAnimation(4s)
+  z-index: 2
+.trackMercury
+  +orbit(140px)
+  +rotateAnimation(1s)
+  z-index: 4
+.trackSaturn
+  +orbit(250px)
+  +rotateAnimation(40s)
+  z-index: 3
+.trackNeptune
+  +orbit(500px)
+  +rotateAnimation(25.60s)
+  z-index: 1 
+  
+
+.sun
+  position: absolute
+  top:  50%
+  left: 50%
+  margin: $sunSize/-2 0 0 $sunSize/-2
+  width:  $sunSize
+  height: $sunSize
+  border-radius: 50%
+  background: yellow
+
+.tres
+  +planet(28px)
+  background: #da9c18
+.alhav
+  +planet(10px)
+  background: #fb2401
+.mostond
+  +planet(55px)
+  background: #e6d48b
+.vendor
+  +planet(45px)
+  background: #5b7dad
+
+@keyframes rotate360
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

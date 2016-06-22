@@ -132,6 +132,8 @@ section
 .s_about
 	background: $bg_section1
 	color: #9d9497
+	.row
+		margin-bottom: 50px
 	.section_header p::after
 		background: #9d9497
 	.galaxy_wrapper
@@ -165,7 +167,7 @@ section
 				left: 50%
 		img
 			width: 100%
-	.about_galaxy
+	.text_about
 		h3
 			text-align: center
 			font-size: 20px
@@ -173,12 +175,28 @@ section
 		li
 			text-align: justify
 			margin-bottom: 10px
+	.solar_system
+		position: relative
+		height: 580px
+		text-align: center
+		h1
+			font-family: "SpaceAge"
+			
 
+@import "solar_system"
 
 .s_property
 	background: $bg_section2
-	.odometer
-		font-size: 50px
+	.section_content
+		text-align: center
+		h3
+			font-size: 24px
+			font-family: "Cyberfall"
+			text-transform: uppercase
+			padding-bottom: 15px
+		.odometer
+			font-size: 30px
+			font-family: "SnowstormBlack"
 
 .s_gallery
 	background: $bg_section3
