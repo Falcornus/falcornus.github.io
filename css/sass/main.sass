@@ -1,8 +1,9 @@
-@import "bourbon/bourbon"
+@import "bourbon/_bourbon"
 
 $bg_section1: #121111
-$bg_section2: #415d3e
-$bg_section3: #8fbcdf
+$bg_section2: #e6d48b
+$color_section2: #363434
+$color_section1: #9d9497
 
 html,
 body
@@ -25,7 +26,7 @@ body
 	position: relative
 	padding: 20px 0
 
-svg
+header svg
 	width: 100px
 	height: 100px
 	+animation(Therounding 10s linear infinite)
@@ -37,6 +38,7 @@ svg
 		+transform(rotate(360deg))
 
 @import "navmenu"
+// @import "nav"
 
 .loader
 	background: none repeat scroll 0 0 #000
@@ -131,11 +133,11 @@ section
 
 .s_about
 	background: $bg_section1
-	color: #9d9497
+	color: $color_section1
 	.row
 		margin-bottom: 50px
 	.section_header p::after
-		background: #9d9497
+		background: $color_section1
 	.galaxy_wrapper
 		position: relative
 		.our_planet
@@ -181,33 +183,92 @@ section
 		text-align: center
 		h1
 			font-family: "SpaceAge"
-			
-
 @import "solar_system"
 
 .s_property
 	background: $bg_section2
+	color: $color_section2
+	.section_header p::after
+		background: $color_section2
 	.section_content
 		text-align: center
 		h3
 			font-size: 24px
-			font-family: "Cyberfall"
 			text-transform: uppercase
-			padding-bottom: 15px
-		.odometer
-			font-size: 30px
-			font-family: "SnowstormBlack"
-
+			letter-spacing: 3px
+			text-decoration: underline
+		svg 
+			width: 90px
+			height: 90px
+			position: re
+			right: 20px
+			top: 20px
+			path
+				fill: $color_section2
+		.col-sm-6
+			margin-bottom: 50px
+		.col-sm-7
+			text-align: justify
+			padding-top: 10px
 .s_gallery
-	background: $bg_section3
-
-.s_tarrifs
 	background: $bg_section1
+	color: $color_section1
+	.section_header p::after
+		background: $color_section1
+	ul
+		list-style: none outside none
+		padding-left: 0
+		margin: 0
+		text-align: center
+	img
+		max-height: 500px
+		max-width: 100%
+
+.s_contacts
+	background: $bg_section2
+	color: $color_section2
+	.section_header p::after
+		background: $color_section2
+	.section_content
+		input, textarea, button
+			width: 100%
+			margin: 7px 0 8px
+			padding: 10px
+			border: none
+			+placeholder
+				text-transform: uppercase
+		input:invalid
+			border: 1px solid #C00000
+		label
+			text-transform: uppercase
+			font-family: "SnowstormBlack"
+			font-weight: 700
+		button
+			background: $color_section2
+			color: #fff
+			font-size: 20px
+			font-family: "Cyberfall"
+		span
+			padding-right: 5px
+		p
+			padding: 0
+			margin: 0
+		.text-danger
+			color: red
+			text-transform: none
 
 .main_footer
 	padding: 50px 0
-	background: #000
+	background: $bg_section1
 	text-transform: uppercase
 	font-size: 20px
+	font-family: "SpaceAge"
+	.social_wrap 
+		float: right
+		a
+			color: $bg_section2
+		li
+			display: inline-block
+
 
 	

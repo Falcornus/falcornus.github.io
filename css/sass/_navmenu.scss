@@ -24,25 +24,22 @@ ul {
   z-index: 1;
   top: 0;
   right: 0;
-  width: 100px;
+  width: 150px;
   backface-visibility: hidden;
   font-family: "Cyberfall", sans-serif;
   
   &__list {
     display: flex;
     flex-flow: column wrap;
-    height: 88vh;
+    height: 100vh;
     transform: translate(0, -150%);
     transition: $ease;
-    
+    padding-top: 120px;
     &--active {
       transform: translate(0, 0);
     }
   }
   
-  &__rotate{
-    transform: rotate(90deg)
-  }
 
   &__item {
     flex: 1;
@@ -73,20 +70,22 @@ ul {
   }
   
   @media (max-width: 640px) {
-    width: 70px;
+    width: 100px;
 
     &__link{
       font-size: 12px;  
     }
     &__list {
-      height: 91vh;
+      padding-top: 70px;
     }
   }
 }
 
 .burger {
-  height: 100px;
-  position: relative;
+  height: 120px;
+  position: absolute;
+  right: 0;
+  width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,6 +148,7 @@ ul {
   
   @media (max-width: 640px) {
     height: 70px;
+    width: 100px;
     
     &__patty {
       transform: scale(0.8);

@@ -1,8 +1,6 @@
 var menu = document.querySelector('.nav__list');
 var burger = document.querySelector('.burger');
 var doc = $(document);
-var l = $('.scrolly');
-var panel = $('.panel');
 var vh = $(window).height();
 
 var openMenu = function() {
@@ -18,7 +16,7 @@ var scrolly = function(e) {
 
   $('html, body').stop().animate({
       'scrollTop': $target.offset().top
-  }, 300, 'swing', function () {
+  }, 600, 'swing', function () {
       window.location.hash = target;
   });
 }

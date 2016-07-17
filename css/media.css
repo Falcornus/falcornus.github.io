@@ -26,6 +26,11 @@
 		-webkit-background-size: 300px;
 		background-size: 300px;
 	}
+	.main_footer .social_wrap {
+    	float: left;
+		margin-top: 20px;
+		width: 100%;
+	}
 }
 
 /* Custom, iPhone Retina */
