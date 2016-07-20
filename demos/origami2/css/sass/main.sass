@@ -1,0 +1,53 @@
+@import "bourbon/_bourbon"
+
+header
+	height: 100vh
+	background: #fafafa
+	position: relative
+
+.top_wrapper
+	position: absolute
+	display: table
+	width: 100%
+	height: 100%
+	z-index: 1
+	.top_descr
+		display: table-row
+		.top_centred
+			display: table-cell
+			text-align: center
+			vertical-align: middle
+			.top_content
+				display: inline-block
+				font-family: 'Raleway', sans-serif
+				color: #b8b3b3
+				background: url(../img/steam_texture.jpg) 50% 50% no-repeat
+				-webkit-background-clip: text
+				-webkit-text-fill-color: transparent
+				h1
+					font-size: 52px
+					margin: 0
+				p
+					font-size: 15px
+					font-weight: 600
+					letter-spacing: 1px
+
+.lines
+	height: 100vh
+	width: 100vw
+	position: relative
+	svg 
+		position: absolute
+		top: 50%
+		z-index: 0
+		path
+			stroke-dasharray: 0 1000
+			animation: dash 2s linear 1
+			animation-fill-mode: forwards
+
+
++keyframes (dash) 
+	from 
+		stroke-dasharray: 0 1000
+	to 
+		stroke-dasharray: 1000 0
