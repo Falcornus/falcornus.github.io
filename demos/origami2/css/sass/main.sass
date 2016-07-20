@@ -14,14 +14,14 @@ header
 		position: absolute
 		width: 100%
 		margin: 0
+		background: #fcfafa
 		z-index: 100
-		transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
-		-webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
-		-moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
-		-o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
+		+transition(all .6s)
 		.container
 			position: relative
 
+.logo_container svg
+	cursor: pointer
 
 .top_wrapper
 	position: absolute
@@ -61,6 +61,12 @@ header
 			animation: dash 2s linear 1
 			animation-fill-mode: forwards
 
++keyframes (dash) 
+	from 
+		stroke-dasharray: 0 1000
+	to 
+		stroke-dasharray: 1000 0
+
 nav
 	position: absolute
 	top: 20px
@@ -85,19 +91,23 @@ section
 	position: absolute
 	top: 200%
 	z-index: 10
-	transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
-	-webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
-	-moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1)
-	-o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1)  
+	+transition(all .6s cubic-bezier(.5, .2, .2, .5))
+	.top_wrapper .top_descr .top_centred .top_content
+		-webkit-text-fill-color: currentcolor
+		color: #000
+
+
+.s_projects
+	background: #4f6ba7
 
 .s_about
 	background: #000
+	.top_wrapper .top_descr .top_centred .top_content
+		color: #fff
+
+.s_contacts
+	background: #F0AD56
 
 
 
 
-+keyframes (dash) 
-	from 
-		stroke-dasharray: 0 1000
-	to 
-		stroke-dasharray: 1000 0
