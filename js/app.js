@@ -6,7 +6,11 @@ $(document).ready(function() {
 
 		$(".top_wrapper").animated("zoomIn","zoomOut");
 	});
+<<<<<<< HEAD
 	//ANIMATE.CSS
+=======
+	// ANIMATE.CSS
+>>>>>>> origin/master
 	$(".section_header, .galaxy_wrapper img, .odometer, .solar_system").animated("zoomIn", "zoomOut");
 	$(".our_planet").animated("flipInY", "flipOutY");
 	$(".text_about_galaxy li, .text_about_galaxy h3").animated("fadeInRight","fadeOutRight");
