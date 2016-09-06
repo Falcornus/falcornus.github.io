@@ -1,0 +1,973 @@
+@import "bourbon/_bourbon"
+@import url(https://fonts.googleapis.com/css?family=Monsieur+La+Doulaise)
+
+$text_color: #56534c
+$text_color2: #a47d5e
+
+html,body
+	max-width: 100%
+	min-width: 320px	
+	overflow-x: hidden
+	font-size: 10px
+	position: relative
+	right: 0
+	font-family: 'Alegreya-Bold', sans-serif
+	h1,h2,h3,h4
+		font-weight: normal
+
+@media (max-width:753px)
+	html,body
+		font-size: 7px
+@media (min-width: 754px)
+	html,body
+		position: static
+		overflow-y: visible !important
+
+$loader-ring-size: 240px
+$loader-ring-border-size: 4px
+
+.loader
+	position: fixed
+	width: 100%
+	height: 100%
+	top: 0 
+	left: 0
+	background: #1d1b1b
+	z-index: 999
+	.loader-ring
+		position: absolute
+		top: 50%
+		left: 50%
+		margin: $loader-ring-size/-2 0 0 $loader-ring-size/-2
+		width: $loader-ring-size
+		height: $loader-ring-size
+		border-radius: $loader-ring-size
+		.loader-ring-light
+			width: $loader-ring-size
+			height: $loader-ring-size
+			border-radius: $loader-ring-size
+			box-shadow: 0 $loader-ring-border-size 0 lighten(#0087bf, 10%) inset
+			+animation(rotate-360 2s linear infinite)
+			+transition(all .3s linear)
+		.loader-ring-track
+			position: absolute
+			top: 0
+			left: 0
+			width: $loader-ring-size
+			height: $loader-ring-size
+			border-radius: $loader-ring-size
+			box-shadow: 0 0 10px $loader-ring-border-size rgba(black, .3) inset
+		// &:hover
+		// 	box-shadow: 0 0 0 calc(100vh + 100vw) #1d1b1b
+		// 	.loader-ring-light
+		// 		box-shadow: 0 0 0 $loader-ring-border-size lighten(#0087bf, 10%) inset
+		// 		+animation(none)
++keyframes(rotate-360)
+	from
+		+transform(rotate(0))
+	to
+		+transform(rotate(360deg))
+
+.logo_wrapper
+	font-size: 30px
+	font-family: 'Scriptina', sans-serif
+	letter-spacing: 10px
+	a
+		position: relative
+		z-index: 2
+		color: #fff
+
+.header
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	background: rgba(0,0,0,0.3)
+	font-size: 2rem
+	color: #fff
+	padding: 12px 0 20px
+	margin: 0
+	z-index: 3
+	nav
+		position: absolute
+		right: 0
+		top: 0
+		.menu
+			position: absolute
+			z-index: 3
+			top: 0
+			right: -200px
+			height: 100vh
+			width: 200px
+			background: #a5692b url(../img/menu-cake_bg.png) no-repeat
+			background-size: 100px
+			background-position: left bottom
+			overflow-y: visible
+			ul
+				padding-top: 80px
+				li
+					list-style-type: none
+					margin: 25px 25px 25px 0
+					text-align: right
+					position: relative
+					a
+						color: #fff
+						font-size: 14px
+						font-family: 'Alegreya-Regular', sans-serif
+						letter-spacing: 4px
+						padding-bottom: 5px
+						text-transform: uppercase
+						position: relative
+						&:before
+							position: absolute
+							content: ""
+							+transition(all .3s ease-in-out)
+							height: 2px
+							background: #fff
+							width: 0
+							right: 0
+							left: auto
+							bottom: 0
+					&:hover
+						a
+							&:before
+								width: 100%
+								left: 0
+				@media (max-height: 396px)
+					padding-top: 30px
+					li
+						margin: 7vh 25px 7vh 0
+		.social_wrap, input
+			display: none
+		label
+			position: relative
+			top: 15px
+			right: 30px
+			width: 40px
+			height: 40px
+			display: block
+			cursor: pointer
+			background: transparent
+			margin: 0 auto
+			z-index: 4
+			&:before
+				+animation(animationOneReverse 1s ease forwards)
+			&:after
+				+animation(animationTwoReverse 1s ease forwards)
+			.burger
+				&:before
+					content: ''
+					position: absolute
+					top: 6px
+					width: 40px
+					height: 4px
+					border-radius: 2px
+					background: #f0f0f0
+					+animation(animationBurgerTopReverse 1s ease forwards)
+				&:after
+					content: ''
+					position: absolute
+					bottom: 6px
+					width: 40px
+					height: 4px
+					border-radius: 2px
+					background: #f0f0f0
+					+animation(animationBurgerBottomReverse 1s ease forwards)
+		label:before, input:checked + label:before
+			content: ''
+			position: absolute
+			top: 50%
+			margin-top: -2px
+			width: 40px
+			height: 4px
+			border-radius: 2px
+			background: #f0f0f0
+		input:checked + label:before
+			+animation(animationOne 1s ease forwards)
+		label:after, input:checked + label:after
+			content: ''
+			position: absolute
+			top: 50%
+			margin-top: -2px
+			width: 40px
+			height: 4px
+			border-radius: 2px
+			background: #f0f0f0
+		input:checked + label:after
+			+animation(animationTwo 1s ease forwards)
+		input:checked + label .burger:before
+			+animation(animationBurgerTop 1s ease forwards)
+		input:checked + label .burger:after
+			+animation(animationBurgerBottom 1s ease forwards)
+	@media (min-width: 754px)
+		.logo_wrapper
+			a
+				z-index: 4
+		nav
+			width: 100%
+			.burger-button
+				display: none
+			.menu
+				background: none
+				right: 0 !important
+				top: 0 !important
+				width: auto
+				height: auto
+				ul
+					padding: 0
+					margin-top: 13px
+					li
+						display: inline
+						margin: 0 25px 0 0
+						&:after
+							position: absolute
+							content: "~"
+							font-size: 12px
+							right: -15px
+							top: 5px
+						&:last-child
+							margin: 0	
+							&:after
+								content: " "
+		.container
+			position: relative
+	@media (min-width: 992px )
+		nav 
+			.menu
+				left: 0
+				ul
+					text-align: center
+					li
+						margin-right: 40px
+						&:after
+							right: -25px
+			.social_wrap
+				display: inline
+				position: absolute
+				z-index: 5
+				right: 0
+				top: -5px
+				ul li
+					list-style-type: none
+					display: inline
+					padding-right: 20px
+					a
+						color: #fff
+						font-size: 16px
+
+
+
+
+
+//KEYFRAMES FOR BURGER
+
++keyframes(animationOneReverse)
+	0% 
+		+transform(rotate(315deg))
+	25%
+		+transform(rotate(360deg))
+	50%, 100%
+		+transform(rotate(0deg))
+
++keyframes(animationOne)
+	0%, 50% 
+		+transform(rotate(0deg))
+	75%
+		+transform(rotate(360deg))
+	100%
+		+transform(rotate(315deg))
+
++keyframes(animationTwoReverse)
+	0% 
+		+transform(rotate(405deg))
+	25%
+		+transform(rotate(450deg))
+	50%, 100%
+		+transform(rotate(0deg))
+
++keyframes(animationTwo)
+	0%, 50% 
+		+transform(rotate(0deg))
+	75%
+		+transform(rotate(450deg))
+	100%
+		+transform(rotate(405deg))
+
++keyframes(animationBurgerTopReverse)
+	0%, 50% 
+		+transform(translateY(12px))
+		display: none
+		opacity: 0
+	51%
+		+transform(translateY(12px))
+		opacity: 1
+	100%
+		+transform(translateY(0px))
+		opacity: 1
+
++keyframes(animationBurgerBottomReverse)
+	0%, 50% 
+		+transform(translateY(-12px))
+		display: none
+		opacity: 0
+	51%
+		+transform(translateY(-12px))
+		opacity: 1
+	100%
+		+transform(translateY(0px))
+		opacity: 1
+
++keyframes(animationBurgerTop)
+	0% 
+		+transform(translateY(0))
+		opacity: 1
+	50%
+		+transform(translateY(12px))
+		opacity: 1
+	51%, 100%
+		+transform(translateY(12px))
+		opacity: 0
+		display: none
+
++keyframes(animationBurgerBottom)
+	0% 
+		+transform(translateY(0))
+		opacity: 1
+	50%
+		+transform(translateY(-12px))
+		opacity: 1
+	51%, 100%
+		+transform(translateY(-12px))
+		opacity: 0
+		display: none
+
+section
+	font-size: 2.0rem
+
+.s_hero
+	background: #766a5c url(../img/hero_bg.png) no-repeat
+	background-size: cover
+	height: 100vh
+	min-height: 666px
+	position: relative
+	.top_wrapper
+		display: table
+		width: 100%
+		height: 100%
+		position: absolute
+		.top_descr
+			display: table-row
+			.top_centred
+				display: table-cell
+				text-align: center
+				vertical-align: middle
+				background: -moz-radial-gradient(center, ellipse cover, rgba(86,79,76,1) 0%, rgba(86,79,76,0) 53%)
+				background: -webkit-radial-gradient(center, ellipse cover, rgba(86,79,76,1) 0%,rgba(86,79,76,0) 53%)
+				background: radial-gradient(ellipse at center, rgba(86,79,76,1) 0%,rgba(86,79,76,0) 53%)
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#564f4c', endColorstr='#00564f4c',GradientType=1 )
+				background-position: center
+				background-repeat: no-repeat
+				.top_content
+					letter-spacing: 2px
+					display: inline
+					color: #ffffff
+				h1
+					font-family: 'PlayfairDisplay-Bold', sans-serif
+					font-size: 9.2rem
+					text-shadow: 0px 1px #3d3029
+					margin: 50px auto
+				p
+					font-family: 'Lato-Regular', sans-serif
+					font-size: 2.4rem
+					max-width: 550px
+					margin: 63px auto
+				.menu
+					color: #fff
+					font-size: 1.4rem
+					font-family: 'Alegreya-Bold', sans-serif
+					padding: 15px 60px
+					background: rgba(93,90,84,0.5)
+					letter-spacing: 4px
+					text-transform: uppercase
+					border: 1px solid
+					border-color: rgba(0, 0, 0, 0)
+					+transition(all 0.4s ease-in-out)
+					outline: 1px dashed
+					outline-color: rgba(158, 156, 147, 1)
+					outline-offset: 0
+					box-sizing: border-box
+					&:hover
+						outline-offset: 16px
+						outline: 4px solid
+						outline-color: rgba(255,255,255,0)
+						background: rgba(255,255,255,0.8)
+						border-color: rgba(158, 156, 147, 1)
+						color: #9e9c93
+
+	.border
+		height: 106px
+		width: 100%
+		position: absolute
+		z-index: 2
+		bottom: -53px
+		left: 0
+		background: url(../img/border.png) no-repeat
+		background-position: center bottom
+		.bullet
+			position: relative
+			top: -3px
+			height: 106px
+			width: 106px
+			margin: 0 auto
+			background: url(../img/bullet.png) no-repeat
+			background-position: center center
+			cursor: pointer
+			+transition(all .4s ease-in-out)
+			border-radius: 50%
+			background-color: rgba(255,255,255,0)
+			&:hover
+				background-color: rgba(255,255,255,1)
+				+transform(scale(1.19) rotate(360deg))
+
+
+.s_cakes
+	background: #fefdfc url(../img/cakes_bg.png)
+	background-repeat: repeat
+	background-size: cover
+	padding: 100px 0
+	text-align: center
+	color: $text_color
+	.title
+		margin-bottom: 70px
+		h2
+			margin: 0
+			font-size: 48px
+		p
+			margin: 0
+			text-transform: uppercase
+			font-size: 14px
+			color: $text_color2
+	.review p
+		font-family: "Lato-Regular",sans-serif
+		font-size: 14px
+	h3
+		margin: 41px 0
+		font-size: 24px
+	.person
+		position: relative
+		padding: 0
+		margin: 0
+	span
+		position: relative
+		padding: 0 50px
+		font-family: 'Alegreya-Regular', sans-serif
+		font-size: 24px
+		&:before, &:after
+			content: ""
+			border-bottom: 1px solid #d7d5ca
+			position: absolute
+			width: 111px
+			height: 1px
+			top: -20px
+			left: 27.50px
+			margin: auto
+		&:after
+			top: auto
+			bottom: -20px
+	.photo
+		border-radius: 50%
+		border: 3px solid #fff
+	blockquote
+		font-family: 'Monsieur La Doulaise', cursive
+		color: $text_color2
+		font-size: 28px
+		margin: 40px 0
+		position: relative
+		padding: 0 10px
+		&:before
+			content: open-quote
+			font-size: 90px
+			position: absolute
+			top: -10px
+			left: -10px
+			line-height: 0.1em
+		&:after
+			content: close-quote
+			font-size: 90px
+			position: absolute
+			bottom: -25px
+			right: 10px
+			line-height: 0.1em
+	.right-img
+		width: 100%
+		max-width: 610px
+		min-height: 300px
+		background: url(../img/right-img.png) no-repeat
+		background-position: center center
+		background-size: contain
+		margin: 0 auto
+		@media (min-width: 629px)
+			min-height: 450px
+		@media (min-width: 992px)
+			min-height: 615px
+		@media (min-width: 1170px)
+			min-height: 560px
+
+
+	@media (max-width: 1199px)
+		span
+			padding: 0
+		.name
+			&:before, &:after
+				left: auto
+				right: 0
+		.surname
+			&:before, &:after
+				left: 0
+
+
+.readyin
+	position: absolute
+	text-align: center
+	background-color: #fff
+	background-image: url(../img/readyin_bg.png)
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: center bottom
+	width: 150px
+	padding: 20px 0
+	h3
+		text-transform: uppercase
+		color: $text_color2
+		font-size: 14px
+		margin: 0
+	h2
+		font-size: 80px
+		color: #dfc691
+		margin: 0
+		line-height: 1
+	span
+		font-size: 14px
+		color: #979285
+	@media(min-width: 992px)
+		width: 170px
+		h3
+			font-size: 18px
+		h2
+			font-size: 92px
+		span
+			font-size: 18px
+	@media(min-width: 1200px)
+		width: 200px
+
+
+.s_pancakes
+	background: #e8eae5 url(../img/pancakes_bg.png) no-repeat
+	background-size: cover
+	background-position: top center
+	padding: 90px 0
+	.perfect_pancake
+		position: relative
+		width: 100%
+		max-width: 965px
+		margin: 0 auto
+		.leftside
+			width: 100%
+			height: 300px
+			background: url(../img/leftside_pancakes.png)
+			background-position: center center
+			background-size: cover
+			position: relative
+			.rate
+				position: absolute
+				bottom: 35%
+				left: 0
+				ul
+					li
+						background: url(../img/picked-star.png)
+						background-size: contain
+						background-position: center center
+						width: 21px
+						height: 20px
+						margin: 10px 0
+						list-style-type: none
+						&:last-child
+							background: url(../img/unpicked-star.png)
+		.rightside
+			position: relative
+			width: 100%
+			background-color: #fff
+			background-image: url(../img/right-side_bg.png)
+			background-size: initial
+			background-position: right bottom
+			background-repeat: no-repeat
+			padding: 30px 20px
+			color: $text_color
+			font-size: 14px
+			h2
+				margin: 0
+				font-size: 35px
+			span
+				color: $text_color2
+				text-transform: uppercase
+			p
+				font-family: 'Lato-Regular', sans-serif
+				margin: 30px 0
+			.slider
+				text-align: center
+				margin: 20px 0
+				img
+					width: 75px
+					height: 75px
+					-o-object-fit: cover
+					object-fit: cover
+					border-radius: 50%
+			&:before
+				content: ""
+				position: absolute
+				width: 50px
+				height: 50px
+				background: #fff url(../img/threelines.png)
+				background-position: center center
+				background-repeat: no-repeat
+				background-size: initial
+				top: -20px
+				left: calc(50% - 20px)
+				border-radius: 50%
+				+transform(rotate(90deg))
+		.readyin
+			top: -50px
+			right: -10px
+			-webkit-box-shadow: -14px 14px 34px -2px rgba(176,176,176,1)
+			-moz-box-shadow: -14px 14px 34px -2px rgba(176,176,176,1)
+			box-shadow: -14px 14px 34px -2px rgba(176,176,176,1)
+		@media (min-width: 992px)
+			.leftside
+				position: absolute
+				height: 100%
+				width: 60%
+				background-position: left bottom
+				.rate
+					bottom: 20%
+			.rightside
+				margin-left: 400px
+				padding: 30px 60px
+				width: auto
+				h2
+					font-size: 48px
+					margin-top: 40px
+				p
+					margin: 70px 0
+				.slider
+					margin: 30px 0 10px
+					.lSAction > .lSPrev
+						left: 0
+					.lSAction > .lSNext
+						right: 0
+				&:before
+					top: calc(50% - 20px)
+					left: -20px
+					+transform(rotate(0deg))
+			.readyin
+				right: -25px
+	@media (min-width: 1200px)
+		padding: 140px 0
+		.container
+			padding-right: 90px
+		.perfect_pancake
+			.readyin
+				right: -110px
+
+.s_breakfast
+	background: #3f4254 url(../img/breakfast_bg.png) no-repeat
+	background-size: cover
+	background-position: top center
+	padding: 89px 0 70px
+	text-align: center
+	.menu_wrapp
+		position: relative
+		width: 100%
+		max-width: 400px
+		background: #f3f1e9
+		border: 1px dashed #9e9c93
+		margin: 0 auto
+		margin-top: 10px
+		color: $text_color
+		padding: 0 25px 50px 25px
+		z-index: 2
+		&:before
+			content: ""
+			position: absolute
+			top: -10px
+			bottom: -10px
+			left: -10px
+			right: -10px
+			border: 9px solid #f3f1e9
+			z-index: -1
+		// &:after
+		// 	content: ""
+		// 	position: absolute
+		// 	bottom: -10px
+		// 	background: url(../img/forcurl.png)
+		// 	left: -10px
+		// 	width: 30px
+		// 	height: 30px
+		// 	border-top: 30px solid #eae9e4
+		// 	border-left: 30px solid transparent
+		// 	+box-sizing(border-box)
+		header
+			padding: 20px 0 60px
+			background: url(../img/menu-head_bg.png) no-repeat
+			background-size: contain
+			background-position: center bottom
+			font-size: 14px
+		h2
+			font-size: 4.4rem
+		p
+			font-family: 'Lato-Regular', sans-serif
+			font-size: 14px
+			letter-spacing: 1px
+			line-height: 30px
+			margin-bottom: 50px
+		a
+			padding: 15px 70px
+			border: 1px solid #9e9c93
+			text-transform: uppercase
+			color: $text_color2
+			font-size: 18px
+	.left-block
+		header
+			position: relative
+			margin-top: 40px
+			margin-bottom: 15px
+			h1
+				font-size: 6rem
+				color: #fff
+				margin: 0
+				letter-spacing: 3px
+			h3
+				color: #c8a593
+				font-size: 18px
+				margin: 0
+				text-transform: uppercase
+				letter-spacing: 2px
+		.menu-item
+			margin-top: 40px
+			h2
+				margin: 0
+				color: #fff
+				font-size: 30px
+			p
+				margin: 10px 0
+				color: #c2beba
+				font-family: 'Lato-Regular', sans-serif
+				font-size: 18px
+			span
+				font-family: 'Alegreya-Regular', sans-serif
+				font-size: 36px
+				color: #dfc691
+		.crown
+			position: relative
+			&:before
+				position: absolute
+				content: ""
+				height: 30px
+				background: url('../img/breakfast_crown.png') no-repeat
+				background-position: center center
+				top: -30px
+				left: 0
+				right: 0
+	@media (min-width: 992px)
+		.menu_wrapp
+			position: absolute
+			right: 0
+			h2
+				margin-top: 55px
+		.left-block
+			header
+				margin-top: -20px
+			.menu-item
+				margin-top: 35px
+				p
+					margin: 0
+ 
+.s_sandwich
+	background: #f3f1e9 url(../img/sandwich-top_bg.png) no-repeat
+	background-position: center top
+	text-align: center
+	color: $text_color
+	header
+		margin: 90px 0 60px
+		h1
+			font-size: 4.8rem
+			margin: 0
+		h4
+			color: $text_color2
+			font-size: 14px
+			margin: 0
+			text-transform: uppercase
+	.main_block
+		height: 400px
+		width: 100%
+		position: relative
+		background: url(../img/main-block_bg.png) no-repeat
+		background-size: cover
+		border: 5px solid #fff
+		.info
+			position: absolute
+			right: 0
+			top: -15px
+			.readyin
+				position: relative
+			.info-block
+				margin-top: 1px
+				background-image: none
+				background-color: rgba(255, 255, 255, 0.6)
+				h2
+					color: $text_color
+					font-size: 50px
+				@media(min-width: 992px)
+					h2
+						font-size: 60px
+		.fullrecipe
+			position: absolute
+			bottom: -10px
+			left: -10px
+			text-transform: uppercase
+			font-size: 16px
+			color: #dfc691
+			padding: 10px 15px
+			background: #fff
+			border: 1px solid
+			border-color: rgba(255, 255, 255, 0)
+			outline: 1px dashed
+			outline-offset: -1px
+			outline-color: rgba(223, 198, 145, 1)
+			+transition(all .4s ease-in-out)
+			&:hover
+				outline-offset: 15px
+				outline: 4px solid
+				outline-color: rgba(223, 198, 145, 0)
+				background: #dfc691
+				color: #fff
+				border-color: rgba(255, 255, 255, 1)
+
+	.left-side
+		ul
+			margin: 30px 0
+			padding: 0
+			li
+				list-style: none
+				margin: 25px 0
+				img
+					border-radius: 50%
+					object-fit: cover
+					+size(100px)
+					+filter(drop-shadow(0px 5px 5px #e7e3d3))
+				h3
+					color: $text_color2
+					font-size: 30px
+					margin: 10px 0
+				p
+					color: $text_color
+					font-family: 'Lato-Regular', sans-serif
+					font-size: 14px
+	@media (min-width: 753px)
+		.main_block
+			height: 430px
+	@media (min-width: 992px)
+		.main_block
+			height: 530px
+			border-width: 10px
+			margin-top: 20px
+			.info
+				top: -30px
+				.readyin
+					padding: 32px 0
+			.fullrecipe
+				padding: 20px 25px
+				left: -30px
+				bottom: -30px
+		.left-side
+			top: -90px
+			padding-left: 0
+			.col-md-12
+				padding-left: 0
+				max-width: 280px
+			ul
+				margin: 0
+
+
+.footer
+	width: 100%
+	position: relative
+	background: #f3f1e9
+	bottom: 0
+	left: 0
+	padding: 20px 0
+	.footer_wrap
+		width: 100%
+		text-align: center
+		display: flex
+		flex-direction: column
+		.logo_wrapper
+			padding-bottom: 20px 
+			a
+				color: $text_color
+		ul
+			order: 1
+			padding: 0
+			margin: 0
+			li
+				list-style: none
+				a
+					color: $text_color
+					font-size: 14px
+					font-family: 'Alegreya-Regular', sans-serif
+					text-transform: uppercase
+					letter-spacing: 2px
+	@media (min-width: 400px)
+		.footer_wrap
+			flex-direction: row
+			justify-content: space-around
+			align-content: center
+			ul
+				order: 0
+	@media (min-width: 754px)
+		padding: 20px 0 80px
+		.footer_wrap
+			align-items: center
+			justify-content: space-between
+			ul
+				padding: 28px 0
+				border: 1px solid #c2beba
+				border-width: 1px 0 1px 0
+				li
+					display: inline
+					margin: 0 5px
+	@media (min-width: 992px)
+		.footer_wrap
+			ul
+				padding: 28px 38px
+				li
+					position: relative
+					margin-right: 40px
+					&:after
+						position: absolute
+						content: "~"
+						font-size: 12px
+						right: -20px
+						top: -2px
+					&:last-child
+						margin: 0	
+						&:after
+							content: " "
+	@media (min-width: 1200px)
+		.footer_wrap ul li
+			margin-right: 80px
+			&:after
+				right: -40px 
+
+
+
+

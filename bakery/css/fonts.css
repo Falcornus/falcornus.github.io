@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "PlayfairDisplay-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/PlayfairDisplay-Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: "Alegreya-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Alegreya-Bold.ttf") format("truetype"); }
+@font-face {
+  font-family: "Alegreya-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Alegreya-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Montserrat-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Montserrat-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Lato-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Scriptina";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/SCRIPTIN.ttf") format("truetype"); }

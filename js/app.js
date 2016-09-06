@@ -7,11 +7,11 @@ $(document).ready(function() {
 		$(".top_wrapper").animated("zoomIn","zoomOut");
 	});
 	//ANIMATE.CSS
-	// $(".section_header, .galaxy_wrapper img, .odometer, .solar_system").animated("zoomIn", "zoomOut");
-	// $(".our_planet").animated("flipInY", "flipOutY");
-	// $(".text_about_galaxy li, .text_about_galaxy h3").animated("fadeInRight","fadeOutRight");
-	// $(".text_about_system li, .text_about_system h3").animated("fadeInLeft","fadeOutLeft");
-	// $(".s_property .row .col-sm-6").animated("bounceIn","bounceOut");
+	$(".section_header, .galaxy_wrapper img, .odometer, .solar_system").animated("zoomIn", "zoomOut");
+	$(".our_planet").animated("flipInY", "flipOutY");
+	$(".text_about_galaxy li, .text_about_galaxy h3").animated("fadeInRight","fadeOutRight");
+	$(".text_about_system li, .text_about_system h3").animated("fadeInLeft","fadeOutLeft");
+	$(".s_property .row .col-sm-6").animated("bounceIn","bounceOut");
 	//HOVER ON PLANET IN SYSTEM
 	$(".solar_system div").hover(function(){
 		$(".solar_system h1").text($("div", this).attr("class"));

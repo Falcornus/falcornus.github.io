@@ -1,0 +1,324 @@
+@import "bourbon/_bourbon"
+
+$text_color1: #989796
+$text_color2: #272625
+
+html,body
+	max-width: 100%
+	min-width: 320px	
+	overflow-x: hidden
+	font-size: 14px
+	font-family: 'Raleway-Medium', sans-serif
+	h1,h2,h3,h4
+		font-weight: normal
+
+body
+	background: #fcfafa
+
+.nav-over
+	z-index: 0
+	opacity: 0
+	left: 0
+	background: #000
+	+transition(all 0.2s linear)
+	@media(min-width: 700px)
+		display: none
+
+.nav-over-active
+	position: fixed
+	left: 250px
+	width: 100%
+	height: 100%
+	opacity: 0.75
+	z-index: 9999
+	top: 0
+	bottom: 0
+	+transition(all 0.2s linear)
+
+.header
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 2
+	color: $text_color1
+	.container
+		margin-top: 15px
+	.menu
+		position: absolute
+		top: 0
+		left: -250px
+		background: #f6f3f3
+		width: 250px
+		padding: 30px 0 30px 40px
+		a
+			color: $text_color1
+			+transition(all .2s linear)
+			position: relative
+			padding-bottom: 5px
+			&:before
+				position: absolute
+				content: ""
+				+transition(all .2s linear)
+				height: 1px
+				background: #8fa1c8
+				width: 0
+				right: 0
+				left: auto
+				bottom: 0
+			&:hover
+				color: $text_color2
+				&:before
+					width: 100%
+					left: 0
+		.profile
+			margin: 20px 0 40px
+		nav
+			ul
+				padding: 0
+				li
+					list-style: none
+					margin: 20px 0
+	.logo
+		margin-left: 50px
+	.nav-bar
+		position: absolute
+		top: 30px
+		left: 20px
+		width: 40px
+		height: 40px 
+		cursor: pointer
+		.burger
+			position: relative
+			top: 20px
+			width: 40px
+			height: 2px
+			border-bottom: 2px solid #000
+			border-radius: 1px
+			&:before, &:after
+				position: absolute
+				content: ""
+				top: -10px
+				height: 2px
+				width: 40px
+				background: #000
+			&:after
+				top: 10px
+	@media(min-width: 700px)
+		.container
+			position: relative
+		.menu
+			left: 0 !important
+			background: none
+			height: auto !important
+			padding: 10px 0 0 125px
+			width: 100%
+			nav
+				ul
+					li
+						display: inline
+						margin-right: 35px
+			.profile
+				position: absolute
+				right: 20px
+		.nav-bar
+			display: none
+		.logo
+			margin: 0
+
+section
+	position: relative
+	.title
+		font-family: 'Merriweather-Bold'
+		color: $text_color2
+		font-size: 36px
+		text-align: center
+		text-transform: uppercase
+
+.s_hero
+	width: 100vw
+	height: 100vh
+	min-height: 400px
+	.top_wrapper
+		display: table
+		width: 100%
+		height: 100%
+		position: absolute
+		.top_descr
+			display: table-row
+			.top_centred
+				display: table-cell
+				text-align: center
+				vertical-align: middle
+				.top_content
+					display: inline
+					h1
+						font-family: 'Merriweather-Bold'
+						font-size: 40px
+						color: $text_color2
+						margin: 0
+					p
+						font-family: 'Raleway-Regular', sans-serif
+						color: $text_color1
+						font-size: 11px
+					@media(min-width: 700px)
+						h1
+							font-size: 60px
+						p
+							font-size: 16px
+
+	.language
+		position: absolute
+		bottom: 50px
+		width: 100%
+		.container
+			position: relative
+		ul
+			position: absolute
+			right: 30px
+			margin: 0
+			padding: 0
+			cursor: pointer
+			li
+				display: none
+				list-style: none
+				color: $text_color1
+				+transition(all .2s linear)
+			i
+				position: absolute
+				right: -15px
+				top: 3px
+				color: #5a5958
+				+transition(all .2s linear)
+			.selected
+				display: block
+				position: absolute
+				right: 0
+				top: 0
+			&:hover
+				i
+					+transform(rotate(-180deg))
+				.selected
+					color: #333030
+				li
+					display: block
+
+
+
+.s_projects
+	background: #f6f3f3
+	.title
+		padding: 90px 0 60px
+	.project
+		position: relative
+		width: 100%
+		overflow: hidden
+		margin-top: 30px
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+		.info_wrapper
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background: rgba(0,0,0,0.7)
+			display: none
+			.info_descr
+				display: table-row
+				.info_centred
+					display: table-cell
+					text-align: center
+					vertical-align: middle
+					.info_content
+						display: inline
+						color: #fcfafa
+					h2
+						font-family: 'Merriweather-Bold'
+						font-size: 30px
+					p
+						font-family: 'Raleway-Medium', sans-serif
+						font-size: 16px
+		&:hover
+			.info_wrapper
+				display: table
+	.allprojects
+		float: right
+		color: $text_color1
+		margin: 20px
+
+.s_clients
+	.slider
+		margin: 100px 0 66px
+		position: relative
+		font-size: 16px
+		color: $text_color2
+		blockquote
+			line-height: 2
+			position: relative
+			margin: 30px 60px
+			&:before
+				content: ""
+				width: 40px
+				height: 30px
+				background: url(../img/open-quote.png)
+				position: absolute
+				top: -20px
+				left: -55px
+			&:after
+				content: ""
+				width: 40px
+				height: 30px
+				background: url(../img/close-quote.png)
+				position: absolute
+				right: -55px
+				bottom: -20px
+		p
+			margin: 10px 60px
+			font-family: 'Merriweather-Bold'
+		span
+			font-family: 'Merriweather-Regular'
+			color: $text_color1
+			margin: 0 60px
+		.lSSlideOuter .lSPager.lSpg > li a
+			background-color: #fcfafa
+			border: 1px solid #9d9c9b
+		.lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a
+			background-color: #272625
+			border: none
+
+.s_contacts
+	background: #f6f3f3
+	.title
+		margin-bottom: 50px
+	.form_descr
+		text-align: center
+		color: $text_color1
+		font-size: 16px
+	.contact_form
+		width: 265px
+		margin: 55px auto
+		input
+			width: 100%
+			font-size: 16px
+			color: $text_color2
+			padding: 12px 10px
+			border-width: 0
+			border-bottom: 1px solid #000
+			background: transparent
+			margin-bottom: 15px
+			+placeholder
+				color: $text_color1
+			&:focus
+				border-bottom: 1px solid #8fa1c8
+		button
+			margin-top: 17px
+			+size(100% 56px)
+			background: #272625
+			text-transform: uppercase
+			font-family: 'Raleway-Bold', sans-serif
+			font-size: 12px
+			color: #fcfafa
+			border: none
