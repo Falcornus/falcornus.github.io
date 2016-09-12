@@ -23,22 +23,34 @@ $(document).ready(function(){
 		$(".project").css({'height': projectWidth+'px'});
 	});
 
-	$("#quoteSlider").lightSlider({
-		item: 1,
-		loop: true,
-		controls: false,
-		onSliderLoad: function() {
-            $('#quoteSlider').removeClass('cS-hidden');
-        }
-	});
-	$("#phone").mask("+999 (99) 99-99-999");
+	try{
+		$("#quoteSlider").lightSlider({
+			item: 1,
+			loop: true,
+			controls: false,
+			onSliderLoad: function() {
+	            $('#quoteSlider').removeClass('cS-hidden');
+	        }
+		});
+	}catch(err){
+		console.log('There is no lightSlider');
+	};
+	try{
+		$("#phone").mask("+999 (99) 99-99-999");
+	}catch(err){
+		console.log('There is no mask');	
+	};
 
 	$(".to-top").click(function(){
 		$('html,body').animate({scrollTop:0}, 500);
 	});
 });
 
-var app = angular.module('contactForm', ['ngMessages']);
-app.controller('Main', ['$scope', function($scope){
-	
-}]);
+try{
+	var app = angular.module('contactForm', ['ngMessages']);
+	app.controller('Main' , ['$scope', function($scope){
+		
+	}]);
+}catch(err){
+	console.log('There is no angular');
+}
