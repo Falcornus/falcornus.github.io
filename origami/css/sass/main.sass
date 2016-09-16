@@ -11,6 +11,8 @@ html,body
 	font-family: 'Raleway-Medium', sans-serif
 	h1,h2,h3,h4
 		font-weight: normal
+	@media(min-width: 700px)
+		overflow-y: visible !important
 
 body
 	background: #fcfafa
@@ -79,7 +81,56 @@ body
 		z-index: 999
 		.profile
 			margin: 20px 0 40px
+			a
+				margin-right: 100px
+			ul
+				padding: 0
+				cursor: pointer
+				position: relative
+				display: inline-block
+				li
+					display: none
+					list-style: none
+					color: $text_color1
+					+transition(all .2s linear)
+					padding-right: 20px
+					position: relative
+					&:before
+						content: "\2022"
+						position: absolute
+						color: #8fa1c8
+						left: -15px
+						top: -5px
+						font-size: 20px
+						opacity: 0
+						+transform(scale(0.8))
+						+transition(all .2s linear)
+					&:not(.selected):hover
+						color: #333030
+						&:before
+							opacity: 1
+							+transform(scale(1))
+				i
+					position: absolute
+					right: 5px
+					top: 3px
+					color: #5a5958
+					+transition(all .2s linear)
+				.selected
+					display: block
+					right: 0
+					top: 0
+					margin-bottom: 10px
+				&:hover
+					i
+						+transform(rotate(-180deg))
+					.selected
+						color: #333030
+					li
+						display: block
+						padding-bottom: 10px
 		nav
+			+transition(all .2s linear)
 			ul
 				padding: 0
 				li
@@ -128,11 +179,15 @@ body
 						display: inline
 						margin-right: 35px
 			.profile
-				position: absolute
-				right: 20px
+				margin: 0
+				float: right
+				margin-right: 14px
 				a
-					&:before
-						z-index: 9999
+					margin-right: 30px
+					position: relative
+					top: 15px
+					vertical-align: top
+
 		.nav-bar
 			display: none
 		.logo
@@ -179,44 +234,6 @@ section
 							font-size: 60px
 						p
 							font-size: 16px
-
-	.language
-		position: absolute
-		bottom: 50px
-		width: 100%
-		.container
-			position: relative
-		ul
-			position: absolute
-			right: 30px
-			margin: 0
-			padding: 0
-			cursor: pointer
-			li
-				display: none
-				list-style: none
-				color: $text_color1
-				+transition(all .2s linear)
-			i
-				position: absolute
-				right: -15px
-				top: 3px
-				color: #5a5958
-				+transition(all .2s linear)
-			.selected
-				display: block
-				position: absolute
-				right: 0
-				top: 0
-			&:hover
-				i
-					+transform(rotate(-180deg))
-				.selected
-					color: #333030
-				li
-					display: block
-
-
 
 .project
 	position: relative

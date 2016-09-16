@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
 	$(".nav-bar").click(function(){
 		$(".menu").animate({
 			left: 0
@@ -44,6 +43,11 @@ $(document).ready(function(){
 	$(".to-top").click(function(){
 		$('html,body').animate({scrollTop:0}, 500);
 	});
+
+	$(".menu .profile ul li").click(function(){
+		alert($(this).stringify);
+	});
+
 });
 
 try{
