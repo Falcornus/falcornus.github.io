@@ -57,7 +57,7 @@ body
 	width: 100%
 	height: 100%
 	opacity: 0.75
-	z-index: 9999
+	z-index: 999
 	top: 0
 	bottom: 0
 	+transition(all 0.2s linear)
@@ -144,6 +144,16 @@ body
 					margin: 20px 0
 	.logo
 		margin-left: 50px
+		.logo_wrap
+			display: inline-block
+			position: relative
+		a
+			position: absolute
+			height: 75px
+			width: 75px
+			top: 0
+			z-index: 9999
+
 	.nav-bar
 		position: absolute
 		top: 30px
@@ -496,3 +506,5 @@ section
 					&:hover
 						background: #8fa1c8
 						color: #e2e4ed
+		@media(max-width: 767px)
+			margin: 10px auto
