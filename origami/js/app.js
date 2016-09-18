@@ -44,10 +44,28 @@ $(document).ready(function(){
 		$('html,body').animate({scrollTop:0}, 500);
 	});
 
-	$(".menu .profile ul li").click(function(){
-		alert($(this).stringify);
-	});
 
+	// $(".menu .profile ul").each(function(){
+	// 	var width = 0;
+	// 	var currentUl = $(this);
+	// 	currentUl.css({'width': '200px'});
+	// 	var count = 1;
+	// 	currentUl.find("li").each(function(){
+	// 		var currentLi = $(this);
+	// 		console.log(currentLi.outerWidth());
+	// 		if(currentLi.outerWidth() > width){
+	// 			width = currentLi.outerWidth();
+	// 		}
+	// 	});
+	// 	currentUl.css({'width': width+'px'});
+	// 	console.log('width: '+width);
+	// });
+
+
+	$(".submit").click(function(){
+		$(".menu .profile .profile-menu .off").css({'display': 'none'});
+		$(".menu .profile .profile-menu .on").css({'display': 'block'});
+	});
 });
 
 try{
