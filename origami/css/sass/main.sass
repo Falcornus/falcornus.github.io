@@ -477,14 +477,18 @@ section
 				background: url(../img/close-dialog.png) no-repeat
 				position: relative
 				float: right
-				margin: 20px
+				margin: 20px 20px 15px
 				cursor: pointer
+				opacity: 0.4
+				+transition(all .2s linear)
+				&:hover
+					opacity: 1
 			.container
 				width: 280px
 			.signInForm
 				input
 					width: 100%
-					padding: 17px 13px
+					padding: 12px 13px
 					margin-top: 15px
 					border: 1px solid #e4e3e3
 					&:focus
@@ -492,11 +496,13 @@ section
 				a
 					margin: 20px 0
 					float: right
+					text-transform: uppercase
+					font-size: 11px
 				button
 					clear: both
 					width: 100%
 					margin-bottom: 28px
-					padding: 21px 0
+					padding: 16px 0
 					background: transparent
 					border: 1px solid #e4e3e3
 					font-size: 12px 
