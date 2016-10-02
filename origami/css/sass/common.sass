@@ -1,0 +1,442 @@
+@import "bourbon/_bourbon"
+
+$text_color1: #989796
+$text_color2: #272625
+
+
+html,body
+	max-width: 100%
+	min-width: 320px	
+	overflow-x: hidden
+	font-size: 14px
+	font-family: 'Raleway-Medium', sans-serif
+	h1,h2,h3,h4
+		font-weight: normal
+	@media(min-width: 732px)
+		overflow-y: visible !important
+
+
+body
+	background: #fcfafa
+
+.link
+	a, a:visited
+		color: $text_color1
+		+transition(all .2s linear)
+		position: relative
+		padding-bottom: 5px
+		cursor: pointer
+		text-decoration: none
+		&:before
+			position: absolute
+			content: ""
+			+transition(all .2s linear)
+			height: 1px
+			background: #8fa1c8
+			width: 0
+			right: 0
+			left: auto
+			bottom: 0
+		&:hover
+			color: $text_color2
+			text-decoration: none
+			&:before
+				width: 100%
+				left: 0
+
+
+.nav-over
+	z-index: 0
+	opacity: 0
+	left: 0
+	background: #000
+	+transition(all 0.2s linear)
+	@media(min-width: 732px)
+		display: none
+
+.nav-over-active
+	position: fixed
+	left: 250px
+	width: 100%
+	height: 100%
+	opacity: 0.75
+	z-index: 999
+	top: 0
+	bottom: 0
+	+transition(all 0.2s linear)
+
+.header
+	position: fixed
+	z-index: 998
+	top: 0
+	background: #fcfafa
+	left: 0
+	width: 100%
+	color: $text_color1
+	+transition(top 0.2s ease-in-out)
+	.container
+		margin-top: 15px
+	.menu
+		position: fixed
+		top: 0
+		left: -250px
+		background: #f6f3f3
+		width: 250px
+		height: 100vh
+		padding: 30px 0 30px 40px
+		z-index: 999
+		.profile
+			margin: 20px 0 40px
+			.profile-menu
+				margin-right: 100px
+				a
+					cursor: pointer
+				.on
+					display: none
+					ul
+						margin-top: 0
+						a:before
+							display: none
+
+			ul
+				padding: 0
+				cursor: pointer
+				position: relative
+				display: inline-block
+				li
+					display: none
+					list-style: none
+					color: $text_color1
+					+transition(all .2s linear)
+					padding-right: 20px
+					position: relative
+					&:before
+						content: "\2022"
+						position: absolute
+						color: #8fa1c8
+						left: -15px
+						top: -5px
+						font-size: 20px
+						opacity: 0
+						+transform(scale(0.8))
+						+transition(all .2s linear)
+					&:not(.selected):hover
+						color: #333030
+						&:before
+							opacity: 1
+							+transform(scale(1))
+				i
+					position: absolute
+					right: 5px
+					top: 3px
+					color: #5a5958
+					+transition(all .2s linear)
+				.selected
+					display: block
+					right: 0
+					top: 0
+					margin-bottom: 10px
+				&:hover
+					i
+						+transform(rotate(-180deg))
+					.selected
+						color: #333030
+					li
+						display: block
+						padding-bottom: 10px
+		nav
+			ul
+				padding: 0
+				li
+					list-style: none
+					margin: 20px 0
+					sup
+						padding-left: 3px
+						font-size: 12px
+	.logo
+		margin-left: 50px
+		.logo_wrap
+			display: inline-block
+			position: relative
+		a
+			position: absolute
+			height: 75px
+			width: 75px
+			top: 0
+	.nav-bar
+		position: absolute
+		top: 30px
+		left: 20px
+		width: 40px
+		height: 40px 
+		cursor: pointer
+		.burger
+			position: relative
+			top: 20px
+			width: 40px
+			height: 2px
+			border-bottom: 2px solid #000
+			border-radius: 1px
+			&:before, &:after
+				position: absolute
+				content: ""
+				top: -10px
+				height: 2px
+				width: 40px
+				background: #000
+			&:after
+				top: 10px
+	@media(min-width: 732px)
+		border-bottom: 1px solid #e4e3e3
+		padding-bottom: 10px
+		.container
+			position: relative
+		.menu
+			position: absolute
+			left: 0 !important
+			background: none
+			height: auto
+			padding: 10px 0 0 125px
+			width: 100%
+			nav
+				ul
+					li
+						display: inline
+						margin-right: 35px
+			.profile
+				margin: 0
+				float: right
+				margin-right: 14px
+				.profile-menu
+					float: left
+					margin-right: 30px
+					position: relative
+					top: 15px
+					vertical-align: top
+
+		.nav-bar
+			display: none
+		.logo
+			margin: 0
+			a
+				z-index: 9999
+
+.nav-up
+	top: -110px
+
+section
+	position: relative
+	.title
+		font-family: 'Merriweather-Bold'
+		color: $text_color2
+		font-size: 36px
+		text-align: center
+		text-transform: uppercase
+		letter-spacing: 3px
+
+
+.main
+	padding: 200px 0 55px
+	.title
+		text-align: left
+		margin-bottom: 0
+		span
+			color: $text_color1
+			letter-spacing: normal
+	.title-descr
+		font-size: 16px
+		color: $text_color1
+
+
+
+.project
+	position: relative
+	width: 100%
+	overflow: hidden
+	margin-top: 30px
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+		-o-object-fit: cover
+		object-position: top center
+		-o-object-position: top center 
+		+transition(all .2s linear)
+	.info_wrapper
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(0,0,0,0.7)
+		display: table
+		opacity: 0
+		+transform(scale(1.5))
+		+transition(all .2s linear)
+		.info_descr
+			display: table-row
+			.info_centred
+				display: table-cell
+				text-align: center
+				vertical-align: middle
+				.info_content
+					display: inline
+					color: #fcfafa
+					+transition(all .2s linear)
+				h2
+					font-family: 'Merriweather-Bold'
+					font-size: 30px
+				p
+					font-size: 16px
+	&:hover
+		.info_wrapper
+			+transform(scale(1))
+			opacity: 1
+		img
+			+transform(scale(1.1))
+
+.contact_form
+	width: 265px
+	margin: 55px auto
+	input
+		width: 100%
+		font-size: 16px
+		color: $text_color2
+		padding: 12px 95px 12px 10px
+		border-width: 0
+		border-bottom: 1px solid #000
+		background: transparent
+		margin-bottom: 15px
+		+placeholder
+			color: $text_color1
+		&:focus
+			background: transparent
+			+ label
+				&:before
+					color: $text_color2
+					+transform(scale(0.7) translateX(220px))
+				&:after
+					width: 100%
+		&.ng-not-empty
+			+ label:before
+				color: $text_color2
+				+transform(scale(0.7) translateX(220px))
+	label
+		display: block
+		font-size: 1em
+		height: 3em
+		margin-top: -51px
+		position: relative
+		pointer-events: none
+		&:before
+			margin-left: 10px
+			position: absolute
+			content: attr(placeholder)
+			color: $text_color1
+			font-size: 16px
+			+transition(all .2s linear)
+		&:after
+			content: ''
+			width: 0px
+			height: 1px	
+			background: #8fa1c8
+			position: absolute
+			bottom: 6px
+			left: 0
+			+transition(all .2s linear)
+	button
+		margin-top: 17px
+		+size(100% 56px)
+		background: #272625
+		text-transform: uppercase
+		font-family: 'Raleway-Bold', sans-serif
+		font-size: 12px
+		color: #fcfafa
+		border: 0px solid #000
+		+transition(all .2s linear)
+		&:hover
+			background: #4b4a49
+			color: #fff
+		&:active
+			border-width: 1px
+
+
+.footer
+	background: transparent
+	padding: 30px 0 50px
+	border-top: 1px solid #e4e3e3
+	position: relative
+	z-index: 50
+	.container
+		position: relative
+	.to-top
+		position: absolute
+		bottom: 10px
+		right: 15px
+		&:before
+			height: 0
+		@media (max-width: 376px)
+			bottom: 43px
+	.phone
+		margin-right: 35px
+		color: $text_color1
+	nav
+		ul
+			padding: 0
+			li
+				list-style: none
+				display: inline
+				margin-right: 35px
+	
+.modal
+	.modal-dialog
+		max-width: 306px
+		.modal-content
+			border-radius: 0
+			.close-dialog
+				+size(16px)
+				background: url(../img/close-dialog.png) no-repeat
+				position: relative
+				float: right
+				margin: 20px 20px 15px
+				cursor: pointer
+				opacity: 0.4
+				+transition(all .2s linear)
+				&:hover
+					opacity: 1
+			.container
+				width: 280px
+			.signInForm
+				input
+					width: 100%
+					padding: 12px 13px
+					margin-top: 15px
+					border: 1px solid #e4e3e3
+					&:focus
+						border-color: #8fa1c8
+				a
+					margin: 20px 0
+					float: right
+					text-transform: uppercase
+					font-size: 11px
+				button
+					clear: both
+					width: 100%
+					margin-bottom: 28px
+					padding: 16px 0
+					background: transparent
+					border: 1px solid #e4e3e3
+					font-size: 12px 
+					color: $text_color2
+					text-transform: uppercase
+					+transition(all .2s linear)
+					&:hover
+						background: #8fa1c8
+						color: #e2e4ed
+		@media(max-width: 767px)
+			margin: 10px auto
+.modal-open
+	padding: 0 !important
+
+
+

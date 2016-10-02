@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/team.css">
+	<link rel="stylesheet" href="css/contacts.css">
 </head>
 <body>
 	<div class="nav-over"></div>
@@ -61,7 +61,7 @@
 					<ul>
 						<li><a href="projects.html">Проекти <sup>11</sup></a></li>
 						<li><a href="team.html">Команда</a></li>
-						<li><a href="contacts.html">Контакти</a></li>
+						<li><a href="#">Контакти</a></li>
 					</ul>
 				</nav>	
 			</div>
@@ -70,54 +70,63 @@
 	
 	<section id="main" class="main">
 		<div class="container">
-			<h1 class="title">Our team <span>(4)</span></h1>
-			<p class="title-descr">Наша молода, але досвідчена команда фахівців по розробці веб-сайтів.</p>
-			
-			<div class="team">
+			<h1 class="title">Contacts</h1>
+			<p class="title-descr">Зв’яжіться з нами за адресою, вказаною нижче, або напишіть нам письмо. Ми будемо раді відповісти на ваші запитання.</p>
+			<div class="main">
 				<div class="row">
-					<div class="col-md-3 col-sm-6">
-						<div class="member">
-							<div class="avatar">
-								<a href="#"></a>
-								<img src="img/ava1.png" alt="">
-							</div>
-							<div class="name">Віктор Собищанський</div>
-							<div class="role">Дизайнер</div>
+					<div class="col-sm-6 col-sm-push-6">
+						<div class="contact-item">
+							<h3>Адреса</h3>
+							<p>м. Київ, Пр-т науки, 36</p>
+						</div>
+						<div class="contact-item">
+							<h3>E-mail</h3>
+							<p>info@origamiwebstudio.com</p>
+						</div>
+						<div class="contact-item">
+							<h3>Адреса</h3>
+							<p>+38 (096) 724 28 23</p>
+							<p>+38 (097) 215 90 10</p>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="member">
-							<div class="avatar">
-								<a href="#"></a>
-								<img src="img/ava2.png" alt="">
-							</div>
-							<div class="name">Гліб Ляпота</div>
-							<div class="role">Front-end розробник</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="member">
-							<div class="avatar">
-								<a href="#"></a>
-								<img src="img/ava3.png" alt="">
-							</div>
-							<div class="name">Олександр Солодовніков</div>
-							<div class="role">Back-end розробник</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="member">
-							<div class="avatar">
-								<a href="#"></a>
-								<img src="img/ava4.png" alt="">
-							</div>
-							<div class="name">Віталій Лошній</div>
-							<div class="role">Back-end розробник</div>
+					<div class="col-sm-4 col-sm-pull-6">
+						<div class="contact_form" ng-app="contactForm">
+							<form id="contact_form" ng-controller="Main" novalidate name="contact_form">
+								<input type="text" name="name" id="name" ng-model="user.name" ng-minlength=3 ng-maxlength=20 ng-focus required>
+								<label for="name" placeholder="Name"></label>
+								<div class="error"
+								ng-messages="contact_form.name.$error" ng-if="contact_form.name.$dirty">
+									<div ng-message="required">
+									Вы не ввели имя
+									</div>
+									<div ng-message="minlength">
+									Ваше имя должно состоять как минимум с 3 символов
+									</div>
+									<div ng-message="maxlength">
+									Ваше имя должно состоять максимум с 20 символов
+									</div>
+								</div>
+								<input type="email" name="email" id="email" required ng-model="user.email">
+								<label for="email" placeholder="Email"></label>
+								<div class="error"
+								ng-messages="contact_form.email.$error" ng-if="contact_form.email.$dirty">
+									<div ng-message="required">
+									Вы не ввели email
+									</div>
+									<div ng-message="email">
+									Неправильный формат email
+									</div>
+								</div>
+								<input type="text" id="phone" name="phone" required ng-model="user.phone">
+								<label for="phone" placeholder="Phone number"></label>
+								<input type="text" name="details" id="details" required ng-model="user.details">
+								<label for="details" placeholder="Project details"></label>
+								<button type="submit" value="Send message">Send message</button>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</section>
 
@@ -132,6 +141,7 @@
 					<li><a href="contacts.html">Контакти</a></li>
 				</ul>
 			</nav>
+			<a class="to-top">Back to top</a>
 		</div>
 	</footer>
 	<div class="logIn">
@@ -158,6 +168,9 @@
 	<!-- Libs -->
 	<script src="libs/jquery/jquery-1.11.3.min.js"></script>
 	<script src="libs/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+	<script src="libs/jquery.maskedinput/jquery.maskedinput.js" type="text/javascript"></script>
+	<script src="libs/angular/angular.js" type="text/javascript"></script>
+	<script src="libs/angular/angular-messages.js" type="text/javascript"></script>
 	<!-- Scripts -->
 	<script src="js/app.js"></script>
 </body>
