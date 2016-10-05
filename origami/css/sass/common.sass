@@ -95,14 +95,15 @@ body
 					display: none
 					ul
 						margin-top: 0
-						a:before
-							display: none
-
+				.fullprof
+					position: relative
+					top: -15px
 			ul
 				padding: 0
 				cursor: pointer
 				position: relative
 				display: inline-block
+				text-align: right
 				li
 					display: none
 					list-style: none
@@ -110,21 +111,27 @@ body
 					+transition(all .2s linear)
 					padding-right: 20px
 					position: relative
-					&:before
-						content: "\2022"
-						position: absolute
-						color: #8fa1c8
-						left: -15px
-						top: -5px
-						font-size: 20px
-						opacity: 0
-						+transform(scale(0.8))
-						+transition(all .2s linear)
+					padding-left: 10px
+					a
+						position: relative
+						&:after
+							content: "\2022"
+							position: absolute
+							color: #8fa1c8
+							left: -15px
+							top: -5px
+							font-size: 20px
+							opacity: 0
+							+transform(scale(0.8))
+							+transition(all .2s linear)
 					&:not(.selected):hover
 						color: #333030
-						&:before
-							opacity: 1
-							+transform(scale(1))
+						a
+							&:before
+								display: none
+							&:after
+								opacity: 1
+								+transform(scale(1))
 				i
 					position: absolute
 					right: 5px
@@ -136,11 +143,43 @@ body
 					right: 0
 					top: 0
 					margin-bottom: 10px
+					&:after
+						content: ''
+						height: 1px
+						width: 0
+						right: 0
+						background: #e4e3e3
+						bottom: 0
+						left: -10px
+						position: absolute
+						opacity: 0
+						+transition(all .2s linear)
+				&:after
+					position: absolute
+					background: #fcfafa	
+					content: ''
+					z-index: -1
+					outline: 1px solid #e4e3e3
+					outline-offset: 14px
+					width: calc(100% + 20px)
+					height: calc(100% + 20px)
+					opacity: 0
+					top: -10px
+					left: -10px
+					pointer-events: none
+					+transition(all .2s linear)
 				&:hover
+					&:after
+						opacity: 1
+						outline-offset: 0
 					i
 						+transform(rotate(-180deg))
 					.selected
 						color: #333030
+						&:after
+							left: -10px
+							width: calc(100% + 20px)
+							opacity: 1
 					li
 						display: block
 						padding-bottom: 10px
@@ -196,7 +235,7 @@ body
 			left: 0 !important
 			background: none
 			height: auto
-			padding: 10px 0 0 125px
+			padding: 15px 0 0 125px
 			width: 100%
 			nav
 				ul
@@ -229,10 +268,12 @@ section
 	.title
 		font-family: 'Merriweather-Bold'
 		color: $text_color2
-		font-size: 36px
+		font-size: 20px
 		text-align: center
 		text-transform: uppercase
 		letter-spacing: 3px
+		@media(min-width: 700px)
+			font-size: 36px
 
 
 .main
@@ -419,7 +460,7 @@ section
 					float: right
 					text-transform: uppercase
 					font-size: 11px
-				button
+				.submit
 					clear: both
 					width: 100%
 					margin-bottom: 28px

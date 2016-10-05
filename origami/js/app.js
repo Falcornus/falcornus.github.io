@@ -101,10 +101,10 @@ $(document).ready(function(){
 	// });
 
 
-	$(".menu .profile .profile-menu .off a").click(function(){
-		$(".menu .profile .profile-menu .off").css({'display': 'none'});
-		$(".menu .profile .profile-menu .on").css({'display': 'block'});
-	});
+	// $(".menu .profile .profile-menu .off a").click(function(){
+	// 	$(".menu .profile .profile-menu .off").css({'display': 'none'});
+	// 	$(".menu .profile .profile-menu .on").css({'display': 'block'});
+	// });
 });
 
 try{
