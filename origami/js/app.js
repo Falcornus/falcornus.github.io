@@ -44,67 +44,53 @@ $(document).ready(function(){
 		$('html,body').animate({scrollTop:0}, 500);
 	});
 
+	function scrolling(){
 
-	// Hide Header on on scroll down
-	var didScroll;
-	var lastScrollTop = 0;
-	var delta = 5;
-	var navbarHeight = $('.header').outerHeight();
+		// Hide Header on on scroll down
+		var didScroll;
+		var lastScrollTop = 0;
+		var delta = 5;
+		var navbarHeight = $('.header').outerHeight();
 
-	$(window).scroll(function(event){
-	    didScroll = true;
-	});
+		$(window).scroll(function(event){
+		    didScroll = true;
+		});
 
-	setInterval(function() {
-	    if (didScroll) {
-	        hasScrolled();
-	        didScroll = false;
-	    }
-	}, 250);
+		setInterval(function() {
+		    if (didScroll) {
+		        hasScrolled();
+		        didScroll = false;
+		    }
+		}, 250);
 
-	function hasScrolled() {
-	    var st = $(this).scrollTop();
-	    
-	    // Make sure they scroll more than delta
-	    if(Math.abs(lastScrollTop - st) <= delta)
-	        return;
-	    
-	    // If they scrolled down and are past the navbar, add class .nav-up.
-	    // This is necessary so you never see what is "behind" the navbar.
-	    if (st > lastScrollTop && st > navbarHeight){
-	        // Scroll Down
-	        $('header').removeClass('nav-down').addClass('nav-up');
-	    } else {
-	        // Scroll Up
-	        if(st + $(window).height() < $(document).height()) {
-	            $('header').removeClass('nav-up').addClass('nav-down');
-	        }
-	    }
-	    
-	    lastScrollTop = st;
-	}
-
-	// $(".menu .profile ul").each(function(){
-	// 	var width = 0;
-	// 	var currentUl = $(this);
-	// 	currentUl.css({'width': '200px'});
-	// 	var count = 1;
-	// 	currentUl.find("li").each(function(){
-	// 		var currentLi = $(this);
-	// 		console.log(currentLi.outerWidth());
-	// 		if(currentLi.outerWidth() > width){
-	// 			width = currentLi.outerWidth();
-	// 		}
-	// 	});
-	// 	currentUl.css({'width': width+'px'});
-	// 	console.log('width: '+width);
-	// });
-
-
-	// $(".menu .profile .profile-menu .off a").click(function(){
-	// 	$(".menu .profile .profile-menu .off").css({'display': 'none'});
-	// 	$(".menu .profile .profile-menu .on").css({'display': 'block'});
-	// });
+		function hasScrolled() {
+		    var st = $(this).scrollTop();
+		    // Make sure they scroll more than delta
+		    if(Math.abs(lastScrollTop - st) <= delta)
+		        return;
+		    console.log(st);
+		    // If they scrolled down and are past the navbar, add class .nav-up.
+		    // This is necessary so you never see what is "behind" the navbar.
+		    if (st > lastScrollTop && st > navbarHeight){
+		        // Scroll Down
+		        // $('.header').addClass('nav-up');
+		        $('.header').addClass('header_scrolled');
+		        $('.header').addClass('header_hidden');
+		    } else {
+		        // Scroll Up
+		        if(st + $(window).height() < $(document).height()) {
+		            // $('.header').removeClass('nav-up');
+		            $('.header').removeClass('header_hidden');
+		        }
+		        if(st < 10){
+		        	$('.header').removeClass('header_scrolled');
+		        }
+		    }
+		    
+		    lastScrollTop = st;
+		}
+	};
+	scrolling();
 });
 
 try{

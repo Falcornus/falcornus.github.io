@@ -8,8 +8,20 @@ $text_color2: #272625
 
 .main
 	margin-bottom: 50px
-	.col-sm-4
+	.col-sm-5
 		padding-left: 0
+		.contact_form
+			input, textarea
+				border: 1px solid #e4e3e3
+				margin-bottom: 20px
+			.submit
+				width: 50%
+				background: transparent
+				color: $text_color2
+				margin: 0 
+				&:hover
+					background: #8fa1c8
+					color: #fcfafa
 	.col-sm-6
 		&:after
 			content: ""
@@ -35,10 +47,10 @@ $text_color2: #272625
 			&:last-child
 				margin-bottom: 10px
 	@media(min-width: 768px)
-		margin-bottom: 250px
-		.col-sm-4
+		.col-sm-5
 			.contact_form
 				margin: 0
+				width: 100%
 		.col-sm-6
 			&:after
 				height: 100%

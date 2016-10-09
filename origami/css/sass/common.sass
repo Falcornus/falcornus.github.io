@@ -73,9 +73,10 @@ body
 	left: 0
 	width: 100%
 	color: $text_color1
-	+transition(top 0.2s ease-in-out)
+	+transition(all 0.2s ease-in-out)
 	.container
 		margin-top: 15px
+		+transition(all 0.2s ease-in-out)
 	.menu
 		position: fixed
 		top: 0
@@ -85,10 +86,10 @@ body
 		height: 100vh
 		padding: 30px 0 30px 40px
 		z-index: 999
+		+transition(all .2s linear)
 		.profile
 			margin: 20px 0 40px
 			.profile-menu
-				margin-right: 100px
 				a
 					cursor: pointer
 				.on
@@ -109,16 +110,15 @@ body
 					list-style: none
 					color: $text_color1
 					+transition(all .2s linear)
-					padding-right: 20px
+					padding: 0 20px 0 10px
 					position: relative
-					padding-left: 10px
 					a
 						position: relative
 						&:after
 							content: "\2022"
 							position: absolute
 							color: #8fa1c8
-							left: -15px
+							right: -17px
 							top: -5px
 							font-size: 20px
 							opacity: 0
@@ -134,7 +134,7 @@ body
 								+transform(scale(1))
 				i
 					position: absolute
-					right: 5px
+					right: 2px
 					top: 3px
 					color: #5a5958
 					+transition(all .2s linear)
@@ -150,39 +150,42 @@ body
 						right: 0
 						background: #e4e3e3
 						bottom: 0
-						left: -10px
+						left: -15px
 						position: absolute
 						opacity: 0
+						width: calc(100% + 30px)
+						+transform(scale(0.5))
 						+transition(all .2s linear)
 				&:after
 					position: absolute
 					background: #fcfafa	
 					content: ''
 					z-index: -1
-					outline: 1px solid #e4e3e3
-					outline-offset: 14px
-					width: calc(100% + 20px)
-					height: calc(100% + 20px)
+					border: 1px solid #e4e3e3
+					width: calc(100% + 30px)
+					height: calc(100% + 34px)
 					opacity: 0
-					top: -10px
-					left: -10px
+					top: -17px
+					left: -15px
 					pointer-events: none
 					+transition(all .2s linear)
+					+transform(scale(0.5))
 				&:hover
 					&:after
 						opacity: 1
-						outline-offset: 0
+						+transform(scale(1))
 					i
 						+transform(rotate(-180deg))
 					.selected
 						color: #333030
 						&:after
-							left: -10px
-							width: calc(100% + 20px)
 							opacity: 1
+							+transform(scale(1))
 					li
 						display: block
 						padding-bottom: 10px
+						&:last-child
+							padding-bottom: 0
 		nav
 			ul
 				padding: 0
@@ -194,13 +197,18 @@ body
 						font-size: 12px
 	.logo
 		margin-left: 50px
+		+transition(all .2s linear)
 		.logo_wrap
 			display: inline-block
 			position: relative
+			overflow: hidden
+			svg
+				+transition(all 0.2s ease-in-out)
 		a
 			position: absolute
-			height: 75px
-			width: 75px
+			display: block
+			height: 100%
+			width: 100%
 			top: 0
 	.nav-bar
 		position: absolute
@@ -209,6 +217,7 @@ body
 		width: 40px
 		height: 40px 
 		cursor: pointer
+		+transition(all .2s linear)
 		.burger
 			position: relative
 			top: 20px
@@ -259,6 +268,36 @@ body
 			margin: 0
 			a
 				z-index: 9999
+
+	.hint
+		position: absolute
+		width: 100%
+		top: 0
+		left: 0
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		opacity: 0
+		+transition(all .2s linear)
+
+.header_hidden
+	.logo, .nav-bar, .menu
+		opacity: 0
+		pointer-events: none
+	.hint
+		opacity: 1
+
+.header_scrolled
+	padding-bottom: 0
+	-webkit-box-shadow: 0px 7px 29px 4px #eae4e4
+	-moz-box-shadow: 0px 7px 29px 4px #eae4e4
+	box-shadow: 0px 7px 29px 4px #eae4e4
+	.container
+		margin-top: 5px
+	.logo .logo_wrap svg
+		+transform(scale(0.9))
+
 
 .nav-up
 	top: -110px
@@ -339,7 +378,7 @@ section
 .contact_form
 	width: 265px
 	margin: 55px auto
-	input
+	input, textarea
 		width: 100%
 		font-size: 16px
 		color: $text_color2
@@ -385,9 +424,10 @@ section
 			bottom: 6px
 			left: 0
 			+transition(all .2s linear)
-	button
+	.submit
 		margin-top: 17px
-		+size(100% 56px)
+		width: 100%
+		padding: 20px 0
 		background: #272625
 		text-transform: uppercase
 		font-family: 'Raleway-Bold', sans-serif
@@ -447,35 +487,39 @@ section
 					opacity: 1
 			.container
 				width: 280px
-			.signInForm
-				input
-					width: 100%
-					padding: 12px 13px
-					margin-top: 15px
-					border: 1px solid #e4e3e3
-					&:focus
-						border-color: #8fa1c8
-				a
-					margin: 20px 0
-					float: right
-					text-transform: uppercase
-					font-size: 11px
-				.submit
-					clear: both
-					width: 100%
-					margin-bottom: 28px
-					padding: 16px 0
-					background: transparent
-					border: 1px solid #e4e3e3
-					font-size: 12px 
-					color: $text_color2
-					text-transform: uppercase
-					+transition(all .2s linear)
-					&:hover
-						background: #8fa1c8
-						color: #e2e4ed
 		@media(max-width: 767px)
 			margin: 10px auto
+.signInForm 
+	input, textarea
+		width: 100%
+		padding: 12px 13px
+		margin-top: 15px
+		border: 1px solid #e4e3e3
+		&:focus
+			border-color: #8fa1c8
+		+placeholder
+			font-family: 'Raleway-Regular', sans-serif
+	a
+		margin: 20px 0
+		float: right
+		text-transform: uppercase
+		font-size: 11px
+	.submit
+		clear: both
+		width: 100%
+		margin-bottom: 28px
+		padding: 16px 0
+		margin-top: 0
+		background: transparent
+		border: 1px solid #e4e3e3
+		font-size: 12px 
+		font-family: 'Raleway-Bold', sans-serif
+		color: $text_color2
+		text-transform: uppercase
+		+transition(all .2s linear)
+		&:hover
+			background: #8fa1c8
+			color: #e2e4ed
 .modal-open
 	padding: 0 !important
 
