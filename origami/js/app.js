@@ -1,18 +1,14 @@
 $(document).ready(function(){
 
 	$(".nav-bar").click(function(){
-		$(".menu").animate({
-			left: 0
-		}, 200, "linear");
 		$(".nav-over").addClass('nav-over-active');
 		$('html,body').css('overflow-y', 'hidden');
+		$(".menu").addClass('menu-open');
 	});
-	$('.nav-over').click(function(){
-		$(".menu").animate({
-			left: "-250px"
-		}, 200, "linear");
+	$('.nav-over, .close-menu').click(function(){
 		$(".nav-over").removeClass('nav-over-active');
 		$('html,body').css('overflow-y', 'visible');
+		$(".menu").removeClass('menu-open');
 	});
 
 	var projectWidth = $(".project").width() - 80;
@@ -27,6 +23,7 @@ $(document).ready(function(){
 			item: 1,
 			loop: true,
 			controls: false,
+			adaptiveHeight: true,
 			onSliderLoad: function() {
 	            $('#quoteSlider').removeClass('cS-hidden');
 	        }
@@ -43,6 +40,7 @@ $(document).ready(function(){
 	$(".to-top").click(function(){
 		$('html,body').animate({scrollTop:0}, 500);
 	});
+
 
 	function scrolling(){
 
@@ -68,19 +66,16 @@ $(document).ready(function(){
 		    // Make sure they scroll more than delta
 		    if(Math.abs(lastScrollTop - st) <= delta)
 		        return;
-		    console.log(st);
 		    // If they scrolled down and are past the navbar, add class .nav-up.
 		    // This is necessary so you never see what is "behind" the navbar.
 		    if (st > lastScrollTop && st > navbarHeight){
 		        // Scroll Down
-		        // $('.header').addClass('nav-up');
+		        $('.header').addClass('nav-up');
 		        $('.header').addClass('header_scrolled');
-		        $('.header').addClass('header_hidden');
 		    } else {
 		        // Scroll Up
 		        if(st + $(window).height() < $(document).height()) {
-		            // $('.header').removeClass('nav-up');
-		            $('.header').removeClass('header_hidden');
+		            $('.header').removeClass('nav-up');
 		        }
 		        if(st < 10){
 		        	$('.header').removeClass('header_scrolled');
@@ -90,7 +85,9 @@ $(document).ready(function(){
 		    lastScrollTop = st;
 		}
 	};
-	scrolling();
+	if(!($('header').attr("disable")==="true")){
+		scrolling();
+	}
 });
 
 try{

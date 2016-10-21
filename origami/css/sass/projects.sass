@@ -51,18 +51,26 @@ $text_color2: #272625
 			width: 100%
 			margin-top: 50px
 			.active
-				a
+				a,span
 					color: $text_color2
+					position: relative
 					&:before
 						width: 100%
 						left: 0
+						position: absolute
+						content: ""
+						+transition(all .2s linear)
+						height: 1px
+						background: #8fa1c8
+						right: 0
+						bottom: 0
 			li
 				list-style: none
 				display: inline
 				margin-right: 20px
 				&:last-child
 					margin: 0
-				a
+				a,span
 					font-size: 16px
 					padding: 15px 5px
 				.unable

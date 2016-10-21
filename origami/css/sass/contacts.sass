@@ -3,25 +3,21 @@
 $text_color1: #989796
 $text_color2: #272625
 
+.header
+	position: absolute
+	top: 0
+
 .title-descr
 	max-width: 570px
 
 .main
 	margin-bottom: 50px
+	.contant
+		margin-top: 100px
+		position: relative
 	.col-sm-5
-		padding-left: 0
 		.contact_form
-			input, textarea
-				border: 1px solid #e4e3e3
-				margin-bottom: 20px
-			.submit
-				width: 50%
-				background: transparent
-				color: $text_color2
-				margin: 0 
-				&:hover
-					background: #8fa1c8
-					color: #fcfafa
+			width: 100%
 	.col-sm-6
 		&:after
 			content: ""
@@ -32,7 +28,7 @@ $text_color2: #272625
 			bottom: -30px
 			left: 50%
 			margin-left: -132.5px
-		.contact-item
+		.contact-item	
 			text-align: center
 			margin-bottom: 37px
 			h3
@@ -40,6 +36,7 @@ $text_color2: #272625
 				color: $text_color1
 				font-family: 'Merriweather-Bold'
 				text-transform: uppercase
+				font-size: 12px	
 			p
 				color: $text_color2
 				font-size: 16px

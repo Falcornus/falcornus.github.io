@@ -5,14 +5,13 @@
 	<meta html-equiv="X-UA-Compatible" content="IE-edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Origami studio: projects</title>
-	<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/style-projects.css">
 </head>
 <body>
-	<div class="nav-over"></div>
 	<header class="header">
 		<div class="container">
 			<div class="logo">
@@ -34,40 +33,43 @@
 				<div class="burger"></div>
 			</div>
 			<div class="menu link">
+				<header>
+					<h3>Меню</h3>
+					<div class="close-menu"></div>
+				</header>
 				<div class="profile">
 					<div class="profile-menu">
-						<!-- <div class="off">
+						<div class="off">
 							<a data-toggle="modal" data-target="#myModal">Вхід на сайт</a>
-						</div> -->
-						<div class="off fullprof">
+						</div>
+						<!-- <div class="off fullprof">
 							<ul>
 								<i class="fa fa-angle-down"></i>
 								<li class="selected">Толик Джигурда</li>
-								<li><a href="#">Мій профіль</a></li>
+								<li class="myprofile"><a href="#">Мій профіль</a></li>
 								<li><a href="#">Мої повідомлення (0)</a></li>
 								<li><a href="#">Вихід</a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
-					<ul>
+					<ul class="lang">
 						<i class="fa fa-angle-down"></i>
-						<li class="selected">Українська</li>
-						<li><a href="#">English</a></li>
-						<li><a href="#">Русский</a></li>
-						<li><a href="#">Polski</a></li>
+						<li class="selected">Українська <img src="img/ua.png" alt="ua"></li>
+						<li><a href="#">English <img src="img/eng.png" alt="eng"></a></li>
+						<li><a href="#">Русский <img src="img/ru.png" alt="ru"></a></li>
+						<li><a href="#">Polski <img src="img/pln.png" alt="pln"></a></li>
 					</ul>
 				</div>
 				<nav>
 					<ul>
+						<li class="main-page"><a href="index.html">Головна</a></li>
 						<li><a href="projects.html">Проекти <sup>11</sup></a></li>
 						<li><a href="team.html">Команда</a></li>
 						<li><a href="contacts.html">Контакти</a></li>
 					</ul>
 				</nav>	
 			</div>
-			<div class="hint">
-				Something here
-			</div>
+			<div class="nav-over"></div>
 		</div>
 	</header>
 	
@@ -139,8 +141,6 @@
 							</ul>
 						</div>
 					</div>
-				</div>
-				<div class="row">
 					<div class="col-md-6">
 						<div class="project">
 							<img src="img/project3.png" alt="">
@@ -197,7 +197,7 @@
 			<nav>
 				<ul class="link">
 					<li><a href="#">1</a></li>
-					<li class="active"><a href="#">2</a></li>
+					<li class="active"><span>2</span></li>
 					<li><a href="#">3</a></li>
 					<li><a href="#" class="unable">...</a></li>
 					<li><a href="#">15</a></li>

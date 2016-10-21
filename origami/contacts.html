@@ -5,14 +5,13 @@
 	<meta html-equiv="X-UA-Compatible" content="IE-edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Origami studio: contacts</title>
-	<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/contacts.css">
 </head>
 <body>
-	<div class="nav-over"></div>
 	<header class="header">
 		<div class="container">
 			<div class="logo">
@@ -34,40 +33,43 @@
 				<div class="burger"></div>
 			</div>
 			<div class="menu link">
+				<header>
+					<h3>Меню</h3>
+					<div class="close-menu"></div>
+				</header>
 				<div class="profile">
 					<div class="profile-menu">
-						<!-- <div class="off">
+						<div class="off">
 							<a data-toggle="modal" data-target="#myModal">Вхід на сайт</a>
-						</div> -->
-						<div class="off fullprof">
+						</div>
+						<!-- <div class="off fullprof">
 							<ul>
 								<i class="fa fa-angle-down"></i>
 								<li class="selected">Толик Джигурда</li>
-								<li><a href="#">Мій профіль</a></li>
+								<li class="myprofile"><a href="#">Мій профіль</a></li>
 								<li><a href="#">Мої повідомлення (0)</a></li>
 								<li><a href="#">Вихід</a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
-					<ul>
+					<ul class="lang">
 						<i class="fa fa-angle-down"></i>
-						<li class="selected">Українська</li>
-						<li><a href="#">English</a></li>
-						<li><a href="#">Русский</a></li>
-						<li><a href="#">Polski</a></li>
+						<li class="selected">Українська <img src="img/ua.png" alt="ua"></li>
+						<li><a href="#">English <img src="img/eng.png" alt="eng"></a></li>
+						<li><a href="#">Русский <img src="img/ru.png" alt="ru"></a></li>
+						<li><a href="#">Polski <img src="img/pln.png" alt="pln"></a></li>
 					</ul>
 				</div>
 				<nav>
 					<ul>
+						<li class="main-page"><a href="index.html">Головна</a></li>
 						<li><a href="projects.html">Проекти <sup>11</sup></a></li>
 						<li><a href="team.html">Команда</a></li>
 						<li><a href="contacts.html">Контакти</a></li>
 					</ul>
 				</nav>	
 			</div>
-			<div class="hint">
-				Something here
-			</div>
+			<div class="nav-over"></div>
 		</div>
 	</header>
 	
@@ -75,7 +77,7 @@
 		<div class="container">
 			<h1 class="title">Contacts</h1>
 			<p class="title-descr">Зв’яжіться з нами за адресою, вказаною нижче, або напишіть нам письмо. Ми будемо раді відповісти на ваші запитання.</p>
-			<div class="main">
+			<div class="contant">
 				<div class="row">
 					<div class="col-sm-6 col-sm-push-6">
 						<div class="contact-item">
@@ -97,7 +99,7 @@
 							<form id="contact_form" ng-controller="Main" novalidate name="contact_form">
 								<input type="text" name="name" id="name" placeholder="Ім'я" ng-model="user.name" ng-minlength=3 ng-maxlength=20 ng-focus required>
 								<div class="error"
-								ng-messages="contact_form.name.$error" ng-if="contact_form.name.$dirty">
+								ng-messages="contact_form.name.$error" ng-show="contact_form.name.$touched && contact_form.name.$dirty">
 									<div ng-message="required">
 									Вы не ввели имя
 									</div>
@@ -110,7 +112,7 @@
 								</div>
 								<input type="email" name="email" id="email" required placeholder="E-mail" ng-model="user.email">
 								<div class="error"
-								ng-messages="contact_form.email.$error" ng-if="contact_form.email.$dirty">
+								ng-messages="contact_form.email.$error" ng-show="contact_form.email.$touched && contact_form.email.$dirty">
 									<div ng-message="required">
 									Вы не ввели email
 									</div>
@@ -140,7 +142,6 @@
 					<li><a href="contacts.html">Контакти</a></li>
 				</ul>
 			</nav>
-			<a class="to-top">Back to top</a>
 		</div>
 	</footer>
 	<div class="logIn">
