@@ -46,8 +46,8 @@
 						<!-- <div class="off fullprof">
 							<ul>
 								<i class="fa fa-angle-down"></i>
-								<li class="selected">Толик Джигурда</li>
-								<li class="myprofile"><a href="#">Мій профіль</a></li>
+								<li class="selected"><a href="#">Толик Джигурда</a></li>
+								<li><a href="#">Мій профіль</a></li>
 								<li><a href="#">Мої повідомлення (0)</a></li>
 								<li><a href="#">Вихід</a></li>
 							</ul>
@@ -55,10 +55,10 @@
 					</div>
 					<ul class="lang">
 						<i class="fa fa-angle-down"></i>
-						<li class="selected">Українська <img src="img/ua.png" alt="ua"></li>
-						<li><a href="#">English <img src="img/eng.png" alt="eng"></a></li>
-						<li><a href="#">Русский <img src="img/ru.png" alt="ru"></a></li>
-						<li><a href="#">Polski <img src="img/pln.png" alt="pln"></a></li>
+						<li class="selected">Українська <img src="img/lang/uk.png" alt="ua"></li>
+						<li><a href="#">English <img src="img/lang/en.png" alt="eng"></a></li>
+						<li><a href="#">Русский <img src="img/lang/ru.png" alt="ru"></a></li>
+						<li><a href="#">Polski <img src="img/lang/pl.png" alt="pln"></a></li>
 					</ul>
 				</div>
 				<nav>
@@ -205,7 +205,7 @@
 				<form id="contact_form" ng-controller="Main" novalidate name="contact_form" ng-submit="contact_form.$valid">
 					<input type="text" name="name" id="name" placeholder="Ім'я" ng-model="user.name" ng-minlength=3 ng-maxlength=20 required ng-focus="blurName=false" ng-blur="blurName=true">
 					<div class="error"
-					ng-messages="contact_form.name.$error" ng-show="contact_form.name.$touched && contact_form.name.$dirty && blurName===true">
+					ng-messages="contact_form.name.$error" ng-show="contact_form.name.$touched && contact_form.name.$dirty && blurName===true && contact_form.name.$invalid">
 						<div ng-message="required">
 						Вы не ввели имя
 						</div>
@@ -218,7 +218,7 @@
 					</div>
 					<input type="email" name="email" id="email" required placeholder="E-mail" ng-model="user.email" ng-focus="blurMail=false" ng-blur="blurMail=true">
 					<div class="error"
-					ng-messages="contact_form.email.$error" ng-show="contact_form.email.$touched && contact_form.email.$dirty && blurMail===true">
+					ng-messages="contact_form.email.$error" ng-show="contact_form.email.$touched && contact_form.email.$dirty && blurMail===true && contact_form.email.$invalid">
 						<div ng-message="required">
 						Вы не ввели email
 						</div>

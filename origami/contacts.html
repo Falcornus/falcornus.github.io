@@ -72,7 +72,6 @@
 			<div class="nav-over"></div>
 		</div>
 	</header>
-	
 	<section id="main" class="main">
 		<div class="container">
 			<h1 class="title">Contacts</h1>
@@ -96,10 +95,10 @@
 					</div>
 					<div class="col-sm-5 col-sm-pull-6">
 						<div class="contact_form" ng-app="contactForm">
-							<form id="contact_form" ng-controller="Main" novalidate name="contact_form">
-								<input type="text" name="name" id="name" placeholder="Ім'я" ng-model="user.name" ng-minlength=3 ng-maxlength=20 ng-focus required>
+							<form id="contact_form" ng-controller="Main" novalidate name="contact_form" ng-submit="contact_form.$valid">
+								<input type="text" name="name" id="name" placeholder="Ім'я" ng-model="user.name" ng-minlength=3 ng-maxlength=20 required ng-focus="blurName=false" ng-blur="blurName=true">
 								<div class="error"
-								ng-messages="contact_form.name.$error" ng-show="contact_form.name.$touched && contact_form.name.$dirty">
+								ng-messages="contact_form.name.$error" ng-show="contact_form.name.$touched && contact_form.name.$dirty && blurName===true && contact_form.name.$invalid">
 									<div ng-message="required">
 									Вы не ввели имя
 									</div>
@@ -110,9 +109,9 @@
 									Ваше имя должно состоять максимум с 20 символов
 									</div>
 								</div>
-								<input type="email" name="email" id="email" required placeholder="E-mail" ng-model="user.email">
+								<input type="email" name="email" id="email" required placeholder="E-mail" ng-model="user.email" ng-focus="blurMail=false" ng-blur="blurMail=true">
 								<div class="error"
-								ng-messages="contact_form.email.$error" ng-show="contact_form.email.$touched && contact_form.email.$dirty">
+								ng-messages="contact_form.email.$error" ng-show="contact_form.email.$touched && contact_form.email.$dirty && blurMail===true && contact_form.email.$invalid">
 									<div ng-message="required">
 									Вы не ввели email
 									</div>
