@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$(".nav-bar").click(function(){
 		$(".nav-over").addClass('nav-over-active');
 		$('html,body').css('overflow-y', 'hidden');
@@ -31,12 +30,6 @@ $(document).ready(function(){
 	}catch(err){
 		console.log('There is no lightSlider');
 	};
-	try{
-		$("#phone").mask("+999 (99) 99-99-999");
-	}catch(err){
-		console.log('There is no mask');	
-	};
-
 	$(".to-top").click(function(){
 		$('html,body').animate({scrollTop:0}, 500);
 	});
@@ -88,13 +81,5 @@ $(document).ready(function(){
 	if(!($('header').attr("disable")==="true")){
 		scrolling();
 	}
+	$("input, select, textarea").jqBootstrapValidation();
 });
-
-try{
-	var app = angular.module('contactForm', ['ngMessages']);
-	app.controller('Main' , ['$scope', function($scope){
-		
-	}]);
-}catch(err){
-	console.log('There is no angular');
-}

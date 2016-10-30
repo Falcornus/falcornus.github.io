@@ -194,40 +194,30 @@
 		</div>
 	</section>
 	<section id="contacts" class="s_contacts">
-		<div class="container" ng-app="contactForm">
+		<div class="container">
 			<h1 class="title">Contacts</h1>
 			<div class="row">
 				<div class="col-md-8 col-md-push-2">
 					<p class="form_descr">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 				</div>
 			</div>
-			<div class="contact_form" ng-app="contactForm">
-				<form id="contact_form" ng-controller="Main" novalidate name="contact_form" ng-submit="contact_form.$valid">
-					<input type="text" name="name" id="name" placeholder="Ім'я" ng-model="user.name" ng-minlength=3 ng-maxlength=20 required ng-focus="blurName=false" ng-blur="blurName=true">
-					<div class="error"
-					ng-messages="contact_form.name.$error" ng-show="contact_form.name.$touched && contact_form.name.$dirty && blurName===true && contact_form.name.$invalid">
-						<div ng-message="required">
-						Вы не ввели имя
-						</div>
-						<div ng-message="minlength">
-						Ваше имя должно состоять как минимум с 3 символов
-						</div>
-						<div ng-message="maxlength">
-						Ваше имя должно состоять максимум с 20 символов
-						</div>
-					</div>
-					<input type="email" name="email" id="email" required placeholder="E-mail" ng-model="user.email" ng-focus="blurMail=false" ng-blur="blurMail=true">
-					<div class="error"
-					ng-messages="contact_form.email.$error" ng-show="contact_form.email.$touched && contact_form.email.$dirty && blurMail===true && contact_form.email.$invalid">
-						<div ng-message="required">
-						Вы не ввели email
-						</div>
-						<div ng-message="email">
-						Неправильный формат email
-						</div>
-					</div>
-					<input type="text" id="phone" name="phone" required placeholder="Телефон" ng-model="user.phone">
-					<textarea name="details" rows="5" placeholder="Повідомлення"></textarea>
+			<div class="contact_form">
+				<form id="contact_form" novalidate name="contact_form">
+					<label class="form-group">
+					<input type="text" name="name" id="name" placeholder="Ім'я" required maxlength="128" data-validation-required-message="Name field is required">
+					<p class="help-block text-danger"></p>
+					</label>
+					<label class="form-group">
+					<input type="email" name="email" id="email" required placeholder="E-mail" maxlength="128" data-validation-required-message="Email is required" data-validation-email-message="Not valid mail">
+					<p class="help-block text-danger"></p>
+					</label>
+					<label class="form-group">
+					<input type="number" name="phone" minlength="10" maxlength="18" placeholder="Телефон" data-validation-minlength-message="need more" data-validation-maxlength-message="less">
+					<p class="help-block text-danger"></p>
+					</label>
+					<label class="form-group">
+					<textarea maxlength="10" name="details" rows="5" placeholder="Повідомлення"></textarea>
+					</label>
 					<input type="submit" class="submit" value="Send message">
 				</form>
 			</div>
@@ -271,10 +261,8 @@
 	<!-- Libs -->
 	<script src="libs/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
 	<script src="libs/lightslider/lightslider.js" type="text/javascript"></script>
-	<script src="libs/jquery.maskedinput/jquery.maskedinput.js" type="text/javascript"></script>
-	<script src="libs/angular/angular.js" type="text/javascript"></script>
-	<script src="libs/angular/angular-messages.js" type="text/javascript"></script>
 	<script src="libs/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+	<script src="libs/jqBootstrapValidation/jqBootstrapValidation.js" type="text/javascript"></script>
 	<!-- Scripts -->
 	<script src="js/app.js" type="text/javascript"></script>
 </body>
